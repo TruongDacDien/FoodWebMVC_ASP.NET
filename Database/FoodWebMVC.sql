@@ -1,6 +1,6 @@
-﻿CREATE DATABASE BinhDinhFood;
+﻿CREATE DATABASE FoodWebMVC;
 
-USE BinhDinhFood;
+USE FoodWebMVC;
 GO
     
 CREATE TABLE Categories (
