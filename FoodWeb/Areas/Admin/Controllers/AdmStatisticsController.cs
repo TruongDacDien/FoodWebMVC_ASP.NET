@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Repositories;
+using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
+using FoodWebMVC.Repositories;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace FoodWebMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdmStatisticsController : Controller

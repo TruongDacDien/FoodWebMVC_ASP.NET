@@ -1,11 +1,11 @@
-﻿using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
-namespace BinhDinhFood.Models
+namespace FoodWebMVC.Models
 {
     public class Product
     {

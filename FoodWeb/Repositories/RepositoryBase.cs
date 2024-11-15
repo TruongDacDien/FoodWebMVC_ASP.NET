@@ -1,16 +1,16 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
     public class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected BinhDinhFoodDbContext _context;
+        protected FoodWebMVCDbContext _context;
 
-        public RepositoryBase(BinhDinhFoodDbContext context)
+        public RepositoryBase(FoodWebMVCDbContext context)
         {
             _context = context;
         }

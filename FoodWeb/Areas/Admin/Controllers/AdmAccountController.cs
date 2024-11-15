@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BinhDinhFoodWeb.Intefaces;
+using FoodWebMVC.Interfaces;
 using System.Security.Claims;
-using BinhDinhFoodWeb.Models;
+using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace FoodWebMVC.Areas.Admin.Controllers
 {
 	[Area("Admin")]
 	public class AdmAccountController : Controller

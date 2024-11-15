@@ -1,12 +1,12 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
     public class TokenRepository : ITokenRepository
     {
-        private readonly BinhDinhFoodDbContext _context;
-        public TokenRepository(BinhDinhFoodDbContext context)
+        private readonly FoodWebMVCDbContext _context;
+        public TokenRepository(FoodWebMVCDbContext context)
         {
             _context = context;
         }

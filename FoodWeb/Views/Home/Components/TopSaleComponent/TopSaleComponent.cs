@@ -1,8 +1,8 @@
-﻿using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Repositories;
+﻿using FoodWebMVC.Interfaces;
+using FoodWebMVC.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Home.Components.TopSaleComponent
+namespace FoodWebMVC.Views.Home.Components.TopSaleComponent
 {
     public class TopSaleComponent : ViewComponent
     {

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BinhDinhFoodWeb.Intefaces;
+using FoodWebMVC.Interfaces;
 using System.Security.Claims;
-using BinhDinhFoodWeb.Models;
+using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace BinhDinhFoodWeb.Controllers
+namespace FoodWebMVC.Controllers
 {
 	[AllowAnonymous]
 	public class UserController : Controller

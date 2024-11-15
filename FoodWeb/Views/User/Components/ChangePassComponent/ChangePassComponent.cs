@@ -1,9 +1,9 @@
-﻿using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Interfaces;
+using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace BinhDinhFoodWeb.Views.User.Components.ChangePassComponent
+namespace FoodWebMVC.Views.User.Components.ChangePassComponent
 {
     public class ChangePassComponent : ViewComponent
     {

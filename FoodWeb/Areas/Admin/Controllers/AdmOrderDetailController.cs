@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BinhDinhFood.Models;
+using FoodWebMVC.Models;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace FoodWebMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdmOrderDetailController : Controller
     {
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
 
-        public AdmOrderDetailController(BinhDinhFoodDbContext context)
+        public AdmOrderDetailController(FoodWebMVCDbContext context)
         {
             _context = context;
         }
@@ -22,8 +22,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         // GET: Admin/AdmOrderDetail
         public async Task<IActionResult> Index()
         {
-            var binhDinhFoodDbContext = _context.OrderDetails.Include(o => o.Order).Include(o => o.Product);
-            return View(await binhDinhFoodDbContext.ToListAsync());
+            var FoodWebMVCDbContext = _context.OrderDetails.Include(o => o.Order).Include(o => o.Product);
+            return View(await FoodWebMVCDbContext.ToListAsync());
         }
 
         // GET: Admin/AdmOrderDetail/Details/5
@@ -154,7 +154,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             if (_context.OrderDetails == null)
             {
-                return Problem("Entity set 'BinhDinhFoodDbContext.OrderDetails'  is null.");
+                return Problem("Entity set 'FoodWebMVCDbContext.OrderDetails'  is null.");
             }
             var orderDetail = await _context.OrderDetails.FindAsync(id);
             if (orderDetail != null)

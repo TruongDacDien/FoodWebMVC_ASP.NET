@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BinhDinhFood.Models;
+using FoodWebMVC.Models;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace FoodWebMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdmCustomerController : Controller
     {
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
 
-        public AdmCustomerController(BinhDinhFoodDbContext context)
+        public AdmCustomerController(FoodWebMVCDbContext context)
         {
             _context = context;
         }
@@ -24,7 +24,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
               return _context.Customers != null ? 
                           View(await _context.Customers.ToListAsync()) :
-                          Problem("Entity set 'BinhDinhFoodDbContext.Customers'  is null.");
+                          Problem("Entity set 'FoodWebMVCDbContext.Customers'  is null.");
         }
 
         // GET: Admin/AdmCustomer/Details/5
@@ -143,7 +143,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             if (_context.Customers == null)
             {
-                return Problem("Entity set 'BinhDinhFoodDbContext.Customers'  is null.");
+                return Problem("Entity set 'FoodWebMVCDbContext.Customers'  is null.");
             }
             var customer = await _context.Customers.FindAsync(id);
             if (customer != null)

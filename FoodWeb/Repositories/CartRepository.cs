@@ -1,11 +1,10 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
     public class CartRepository : ICartRepository
     {

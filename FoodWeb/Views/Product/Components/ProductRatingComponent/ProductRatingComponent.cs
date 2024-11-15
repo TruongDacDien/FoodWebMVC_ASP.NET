@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Product.Components.ProductRatingComponent
+namespace FoodWebMVC.Views.Product.Components.ProductRatingComponent
 {
 	public class ProductRatingComponent : ViewComponent
     {

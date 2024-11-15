@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using Microsoft.AspNetCore.Http.Features;
-namespace BinhDinhFood.Models
+namespace FoodWebMVC.Models
 {
     public class VnPayLibrary
     {

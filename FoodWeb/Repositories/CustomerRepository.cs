@@ -1,14 +1,13 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
 	public class CustomerRepository : RepositoryBase<Customer>, ICustomerRepository
     {
-		public CustomerRepository(BinhDinhFoodDbContext context) : base(context)
+		public CustomerRepository(FoodWebMVCDbContext context) : base(context)
 		{
 
 		}

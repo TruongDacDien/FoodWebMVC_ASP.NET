@@ -5,17 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Models;
+using FoodWebMVC.Models;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace FoodWebMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdmProductRatingController : Controller
     {
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
 
-        public AdmProductRatingController(BinhDinhFoodDbContext context)
+        public AdmProductRatingController(FoodWebMVCDbContext context)
         {
             _context = context;
         }
@@ -23,8 +22,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         // GET: Admin/AdmProductRating
         public async Task<IActionResult> Index()
         {
-            var binhDinhFoodDbContext = _context.ProductRatings.Include(p => p.Customer).Include(p => p.Product);
-            return View(await binhDinhFoodDbContext.ToListAsync());
+            var FoodWebMVCDbContext = _context.ProductRatings.Include(p => p.Customer).Include(p => p.Product);
+            return View(await FoodWebMVCDbContext.ToListAsync());
         }
 
         // GET: Admin/AdmProductRating/Details/5
@@ -155,7 +154,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             if (_context.ProductRatings == null)
             {
-                return Problem("Entity set 'BinhDinhFoodDbContext.ProductRatings'  is null.");
+                return Problem("Entity set 'FoodWebMVCDbContext.ProductRatings'  is null.");
             }
             var productRating = await _context.ProductRatings.FindAsync(id);
             if (productRating != null)

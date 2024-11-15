@@ -5,22 +5,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BinhDinhFood.Models;
+using FoodWebMVC.Models;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
-using BinhDinhFoodWeb.Models;
 using System.Reflection.Metadata;
 using X.PagedList;
 using System.Security.Claims;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace FoodWebMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdmProductController : Controller
     {
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
         private readonly IWebHostEnvironment _appEnvironment;
 
-        public AdmProductController(BinhDinhFoodDbContext context, IWebHostEnvironment appEnvironment)
+        public AdmProductController(FoodWebMVCDbContext context, IWebHostEnvironment appEnvironment)
         {
             _context = context;
             _appEnvironment = appEnvironment;
@@ -29,8 +28,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         // GET: Admin/AdmProduct
         public async Task<IActionResult> Index(int page = 1)
         {
-            var binhDinhFoodDbContext = _context.Products.Include(p => p.Category);
-            var obj = await binhDinhFoodDbContext.ToListAsync();
+            var FoodWebMVCDbContext = _context.Products.Include(p => p.Category);
+            var obj = await FoodWebMVCDbContext.ToListAsync();
             return View(obj.ToPagedList(page, 10));
         }
 
@@ -199,7 +198,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             if (_context.Products == null)
             {
-                return Problem("Entity set 'BinhDinhFoodDbContext.Products'  is null.");
+                return Problem("Entity set 'FoodWebMVCDbContext.Products'  is null.");
             }
             var product = await _context.Products.FindAsync(id);
             if (product != null)

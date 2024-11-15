@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Shared.Components.MiniCategoryNavBarComponent
+namespace FoodWebMVC.Views.Shared.Components.MiniCategoryNavBarComponent
 {
     public class MiniCategoryNavBarComponent: ViewComponent
     {

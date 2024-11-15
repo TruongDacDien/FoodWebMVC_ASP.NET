@@ -1,4 +1,4 @@
-﻿namespace BinhDinhFoodWeb.Views.Product.Components.AsideComponent
+﻿namespace FoodWebMVC.Views.Product.Components.AsideComponent
 {
     public class AsideComponent
     {

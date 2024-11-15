@@ -1,10 +1,10 @@
-﻿using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
-using BinhDinhFood.Models;
-namespace BinhDinhFoodWeb.Intefaces
+using FoodWebMVC.Models;
+namespace FoodWebMVC.Interfaces
 {
     public interface IUserManager
     {

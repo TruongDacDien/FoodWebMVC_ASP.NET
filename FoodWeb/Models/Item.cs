@@ -1,7 +1,7 @@
-﻿using BinhDinhFood.Models;
+﻿using FoodWebMVC.Models;
 using System.ComponentModel;
 
-namespace BinhDinhFoodWeb.Models
+namespace FoodWebMVC.Models
 {
 	public class Item
 	{

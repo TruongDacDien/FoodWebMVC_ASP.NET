@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Home.Components.BannerGridComponent
+namespace FoodWebMVC.Views.Home.Components.BannerGridComponent
 {
     public class BannerGridComponent :ViewComponent
     {

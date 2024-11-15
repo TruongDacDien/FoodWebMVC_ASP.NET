@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using BinhDinhFood.Models;
+using FoodWebMVC.Models;
 
-namespace BinhDinhFoodWeb.Models
+namespace FoodWebMVC.Models
 {
     public class Token
     {

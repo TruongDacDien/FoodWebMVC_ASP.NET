@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace BinhDinhFoodWeb.Migrations
+namespace FoodWebMVC.Migrations
 {
     public partial class AddDiscountDicountDetailTable : Migration
     {

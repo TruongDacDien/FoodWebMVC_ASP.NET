@@ -1,16 +1,15 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
     public class AdminRepository : IAdminRepository
     {
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
 
-        public AdminRepository(BinhDinhFoodDbContext context)
+        public AdminRepository(FoodWebMVCDbContext context)
         {
             _context = context;
         }

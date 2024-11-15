@@ -1,14 +1,14 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmHome.Components.CustomerComponent
+namespace FoodWebMVC.Areas.Admin.Views.AdmHome.Components.CustomerComponent
 {
     public class CustomerComponent : ViewComponent
     {
-        private BinhDinhFoodDbContext _context;
+        private FoodWebMVCDbContext _context;
 
-        public CustomerComponent(BinhDinhFoodDbContext context)
+        public CustomerComponent(FoodWebMVCDbContext context)
         {
             _context = context;
         }

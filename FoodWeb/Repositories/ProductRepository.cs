@@ -1,15 +1,14 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Models;
-using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
     public class ProductRepository : RepositoryBase<Product>, IProductRepository
     {
 
-        public ProductRepository(BinhDinhFoodDbContext context) : base(context)
+        public ProductRepository(FoodWebMVCDbContext context) : base(context)
         {
         }
         // get list all product

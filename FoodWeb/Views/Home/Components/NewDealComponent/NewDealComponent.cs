@@ -1,8 +1,8 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Home.Components.NewDealComponent
+namespace FoodWebMVC.Views.Home.Components.NewDealComponent
 {
     public class NewDealComponent: ViewComponent
     {

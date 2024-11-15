@@ -1,8 +1,7 @@
-using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Hubs;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
-using BinhDinhFoodWeb.Repositories;
+using FoodWebMVC.Models;
+using FoodWebMVC.Hubs;
+using FoodWebMVC.Interfaces;
+using FoodWebMVC.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BinhDinhFoodDbContext>(options => options.UseSqlServer(
+builder.Services.AddDbContext<FoodWebMVCDbContext>(options => options.UseSqlServer(
 	builder.Configuration.GetConnectionString("DefaultConnection")
 	));
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
@@ -99,7 +98,7 @@ builder.Services.AddCors(options =>
 	options.AddDefaultPolicy(
 		builder =>
 		{
-			builder.WithOrigins("http://binhdinhfood-001-site1.dtempurl.com/")
+			builder.WithOrigins("http://FoodWebMVC-001-site1.dtempurl.com/")
 				.AllowAnyHeader()
 				.WithMethods("GET", "POST")
 				.AllowCredentials();

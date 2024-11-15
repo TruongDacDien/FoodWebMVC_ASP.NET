@@ -1,14 +1,13 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
 	public class ProductRatingRepository : RepositoryBase<ProductRating>, IProductRatingRepository
 	{
 
-        public ProductRatingRepository(BinhDinhFoodDbContext context): base(context)
+        public ProductRatingRepository(FoodWebMVCDbContext context): base(context)
         {
         }
         //public async Task<ProductRating> GetProductRatingAsync(int id) 

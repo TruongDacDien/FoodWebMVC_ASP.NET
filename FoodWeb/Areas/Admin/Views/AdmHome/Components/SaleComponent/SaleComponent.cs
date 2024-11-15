@@ -1,15 +1,15 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmHome.Components.SaleComponent
+namespace FoodWebMVC.Areas.Admin.Views.AdmHome.Components.SaleComponent
 {
     public class SaleComponent : ViewComponent
     {
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
 
-        public SaleComponent(BinhDinhFoodDbContext context)
+        public SaleComponent(FoodWebMVCDbContext context)
         {
             _context = context;
         }

@@ -1,10 +1,10 @@
-﻿using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Interfaces;
+using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using X.PagedList;
 
-namespace BinhDinhFoodWeb.Controllers
+namespace FoodWebMVC.Controllers
 {
 	public class BlogController: Controller
 	{

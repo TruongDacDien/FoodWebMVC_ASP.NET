@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BinhDinhFood.Models;
+using FoodWebMVC.Models;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace FoodWebMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdmOrderController : Controller
     {
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
 
-        public AdmOrderController(BinhDinhFoodDbContext context)
+        public AdmOrderController(FoodWebMVCDbContext context)
         {
             _context = context;
         }
@@ -22,8 +22,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         // GET: Admin/AdmOrder
         public async Task<IActionResult> Index()
         {
-            var binhDinhFoodDbContext = _context.Orders.Include(o => o.Customer);
-            return View(await binhDinhFoodDbContext.ToListAsync());
+            var FoodWebMVCDbContext = _context.Orders.Include(o => o.Customer);
+            return View(await FoodWebMVCDbContext.ToListAsync());
         }
 
         // GET: Admin/AdmOrder/Details/5
@@ -148,7 +148,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             if (_context.Orders == null)
             {
-                return Problem("Entity set 'BinhDinhFoodDbContext.Orders'  is null.");
+                return Problem("Entity set 'FoodWebMVCDbContext.Orders'  is null.");
             }
             var order = await _context.Orders.FindAsync(id);
             if (order != null)

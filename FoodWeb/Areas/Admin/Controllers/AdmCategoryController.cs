@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BinhDinhFood.Models;
+using FoodWebMVC.Models;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace FoodWebMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdmCategoryController : Controller
     {
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
 
-        public AdmCategoryController(BinhDinhFoodDbContext context)
+        public AdmCategoryController(FoodWebMVCDbContext context)
         {
             _context = context;
         }
@@ -24,7 +24,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
               return _context.Categories != null ? 
                           View(await _context.Categories.ToListAsync()) :
-                          Problem("Entity set 'BinhDinhFoodDbContext.Categories'  is null.");
+                          Problem("Entity set 'FoodWebMVCDbContext.Categories'  is null.");
         }
 
         // GET: Admin/AdmCategory/Details/5
@@ -145,7 +145,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             if (_context.Categories == null)
             {
-                return Problem("Entity set 'BinhDinhFoodDbContext.Categories'  is null.");
+                return Problem("Entity set 'FoodWebMVCDbContext.Categories'  is null.");
             }
             var category = await _context.Categories.FindAsync(id);
             if (category != null)

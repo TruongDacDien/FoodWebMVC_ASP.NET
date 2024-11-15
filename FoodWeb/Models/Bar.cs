@@ -1,4 +1,4 @@
-﻿namespace BinhDinhFoodWeb.Models
+﻿namespace FoodWebMVC.Models
 {
     public class Bar
     {

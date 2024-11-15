@@ -1,11 +1,11 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
 	public class OrderRepository: RepositoryBase<Order>, IOrderRepository
     {
-		public OrderRepository(BinhDinhFoodDbContext context): base(context)
+		public OrderRepository(FoodWebMVCDbContext context): base(context)
 		{
 
 		}

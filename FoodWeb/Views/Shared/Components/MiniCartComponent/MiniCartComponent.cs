@@ -1,11 +1,11 @@
-﻿using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Interfaces;
+using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Drawing.Printing;
 using System.Globalization;
 using System.Net.NetworkInformation;
 
-namespace BinhDinhFoodWeb.Views.Cart.Components.MiniCartComponent
+namespace FoodWebMVC.Views.Cart.Components.MiniCartComponent
 {
     public class MiniCartComponent:ViewComponent
     {

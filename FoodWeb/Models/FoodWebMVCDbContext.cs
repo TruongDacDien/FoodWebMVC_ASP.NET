@@ -1,12 +1,12 @@
-﻿using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFood.Models
+namespace FoodWebMVC.Models
 {
-    public class BinhDinhFoodDbContext:DbContext
+    public class FoodWebMVCDbContext:DbContext
     {
-        public BinhDinhFoodDbContext(DbContextOptions<BinhDinhFoodDbContext> options) : base(options)
+        public FoodWebMVCDbContext(DbContextOptions<FoodWebMVCDbContext> options) : base(options)
         {
         }
         public DbSet<Customer> Customers { get; set; }
@@ -74,6 +74,6 @@ namespace BinhDinhFood.Models
 
         }
 
-        public DbSet<BinhDinhFoodWeb.Models.Blog>? Blog { get; set; }
+        public DbSet<FoodWebMVC.Models.Blog>? Blog { get; set; }
     }
 }

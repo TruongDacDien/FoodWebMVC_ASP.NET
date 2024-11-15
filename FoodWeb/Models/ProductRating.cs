@@ -1,9 +1,9 @@
-﻿using BinhDinhFood.Models;
+﻿using FoodWebMVC.Models;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BinhDinhFoodWeb.Models
+namespace FoodWebMVC.Models
 {
     public class ProductRating
     {

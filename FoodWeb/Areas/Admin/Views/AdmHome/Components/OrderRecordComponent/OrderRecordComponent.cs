@@ -1,14 +1,14 @@
-﻿using BinhDinhFood.Models;
+﻿using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmHome.Components.OrderRecordComponent
+namespace FoodWebMVC.Areas.Admin.Views.AdmHome.Components.OrderRecordComponent
 {
     public class OrderRecordComponent : ViewComponent
     {
-        private BinhDinhFoodDbContext _context;
+        private FoodWebMVCDbContext _context;
 
-        public OrderRecordComponent(BinhDinhFoodDbContext context)
+        public OrderRecordComponent(FoodWebMVCDbContext context)
         {
             _context = context;
         }

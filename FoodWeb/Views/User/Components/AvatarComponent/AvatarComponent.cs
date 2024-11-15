@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.User.Components.AvatarComponent
+namespace FoodWebMVC.Views.User.Components.AvatarComponent
 {
     public class AvatarComponent : ViewComponent
     {

@@ -1,8 +1,8 @@
-﻿using BinhDinhFood.Models;
+﻿using FoodWebMVC.Models;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace BinhDinhFoodWeb.Models
+namespace FoodWebMVC.Models
 {
     public class Blog
     {

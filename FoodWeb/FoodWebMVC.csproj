@@ -120,10 +120,6 @@
     <None Include="wwwroot\Content\img\brands\logo_5.png" />
     <None Include="wwwroot\Content\img\brands\logo_6.png" />
     <None Include="wwwroot\Content\img\brands\placeholder_brands.png" />
-    <None Include="wwwroot\Content\img\Bình Định Food-black.png" />
-    <None Include="wwwroot\Content\img\Bình Định Food.png" />
-    <None Include="wwwroot\Content\img\Bình_Định_Food-removebg-preview.ico" />
-    <None Include="wwwroot\Content\img\Bình_Định_Food__1_-removebg-preview.png" />
     <None Include="wwwroot\Content\img\camera.svg" />
     <None Include="wwwroot\Content\img\cards_all.svg" />
     <None Include="wwwroot\Content\img\countdown_bg.svg" />

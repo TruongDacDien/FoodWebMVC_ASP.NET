@@ -1,12 +1,11 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
     public class BannerRepository : RepositoryBase<Banner>, IBannerRepository
     {
-        public BannerRepository(BinhDinhFoodDbContext context): base(context)
+        public BannerRepository(FoodWebMVCDbContext context): base(context)
         {
 
         }

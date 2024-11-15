@@ -1,14 +1,13 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
     public class CategoryRepository : RepositoryBase<Category>, ICategoryRepository
     {
 
-        public CategoryRepository(BinhDinhFoodDbContext context): base(context)
+        public CategoryRepository(FoodWebMVCDbContext context): base(context)
         {
         }
 

@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Cart.Components.FavComponent
+namespace FoodWebMVC.Views.Cart.Components.FavComponent
 {
     public class FavComponent : ViewComponent
     {

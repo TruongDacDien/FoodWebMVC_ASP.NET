@@ -5,21 +5,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Models;
+using FoodWebMVC.Models;
 using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Hosting;
 using System.Security.Claims;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace FoodWebMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdmBannerController : Controller
     {
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
         private readonly IWebHostEnvironment _appEnvironment;
 
-        public AdmBannerController(BinhDinhFoodDbContext context, IWebHostEnvironment appEnvironment)
+        public AdmBannerController(FoodWebMVCDbContext context, IWebHostEnvironment appEnvironment)
         {
             _context = context;
             _appEnvironment = appEnvironment;
@@ -32,7 +31,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                 return RedirectToAction("Login", "AdmAccount");
             return _context.Banners != null ?
                           View(await _context.Banners.ToListAsync()) :
-                          Problem("Entity set 'BinhDinhFoodDbContext.Banners'  is null.");
+                          Problem("Entity set 'FoodWebMVCDbContext.Banners'  is null.");
         }
 
         // GET: Admin/AdmBanner/Details/5
@@ -197,7 +196,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             if (_context.Banners == null)
             {
-                return Problem("Entity set 'BinhDinhFoodDbContext.Banners'  is null.");
+                return Problem("Entity set 'FoodWebMVCDbContext.Banners'  is null.");
             }
             var banner = await _context.Banners.FindAsync(id);
             if (banner != null)

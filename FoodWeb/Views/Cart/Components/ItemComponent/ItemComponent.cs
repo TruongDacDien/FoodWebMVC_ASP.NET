@@ -1,8 +1,8 @@
-﻿using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Interfaces;
+using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Cart.Components.ItemComponent
+namespace FoodWebMVC.Views.Cart.Components.ItemComponent
 {
     public class ItemComponent : ViewComponent
     {

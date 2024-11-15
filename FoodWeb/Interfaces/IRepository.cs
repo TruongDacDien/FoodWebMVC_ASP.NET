@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace BinhDinhFoodWeb.Intefaces
+namespace FoodWebMVC.Interfaces
 {
     public interface IRepository<TEntity> where TEntity : class
     {

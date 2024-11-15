@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Blog.Components.BlogCommentComponents
+namespace FoodWebMVC.Views.Blog.Components.BlogCommentComponents
 {
     public class BlogCommentComponents : ViewComponent
     {

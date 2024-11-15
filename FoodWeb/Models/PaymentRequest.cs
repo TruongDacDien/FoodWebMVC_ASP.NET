@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Net;
 
-namespace BinhDinhFoodWeb.Models
+namespace FoodWebMVC.Models
 {
     class PaymentRequest
     {

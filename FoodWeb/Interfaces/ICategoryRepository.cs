@@ -1,7 +1,7 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Models;
 
-namespace BinhDinhFoodWeb.Intefaces
+namespace FoodWebMVC.Interfaces
 {
     public interface ICategoryRepository : IRepository<Category>
     {

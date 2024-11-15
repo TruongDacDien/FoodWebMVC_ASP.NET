@@ -5,19 +5,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Models;
+using FoodWebMVC.Models;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace FoodWebMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdmBlogController : Controller
     {
         private readonly IWebHostEnvironment _appEnvironment;
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
 
-        public AdmBlogController(BinhDinhFoodDbContext context, IWebHostEnvironment appEnvironment)
+        public AdmBlogController(FoodWebMVCDbContext context, IWebHostEnvironment appEnvironment)
         {
             _context = context;
             _appEnvironment = appEnvironment;
@@ -28,7 +27,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             return _context.Blog != null ?
                         View(await _context.Blog.ToListAsync()) :
-                        Problem("Entity set 'BinhDinhFoodDbContext.Blog'  is null.");
+                        Problem("Entity set 'FoodWebMVCDbContext.Blog'  is null.");
         }
 
         // GET: Admin/AdmBlog/Details/5
@@ -187,7 +186,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             if (_context.Blog == null)
             {
-                return Problem("Entity set 'BinhDinhFoodDbContext.Blog'  is null.");
+                return Problem("Entity set 'FoodWebMVCDbContext.Blog'  is null.");
             }
             var blog = await _context.Blog.FindAsync(id);
             if (blog != null)

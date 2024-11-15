@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-namespace BinhDinhFoodWeb.Models
+namespace FoodWebMVC.Models
 {
     public class RegisterViewModel
     {

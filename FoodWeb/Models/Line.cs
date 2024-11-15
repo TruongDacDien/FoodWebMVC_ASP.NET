@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 
-namespace BinhDinhFoodWeb.Models
+namespace FoodWebMVC.Models
 {
     public class Line
     {

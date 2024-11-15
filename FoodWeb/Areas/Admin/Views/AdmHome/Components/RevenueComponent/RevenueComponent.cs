@@ -1,16 +1,16 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmHome.Components.RevenueComponent
+namespace FoodWebMVC.Areas.Admin.Views.AdmHome.Components.RevenueComponent
 {
     public class RevenueComponent : ViewComponent
     {
-        private BinhDinhFoodDbContext _context;
+        private FoodWebMVCDbContext _context;
         CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-        public RevenueComponent(BinhDinhFoodDbContext context)
+        public RevenueComponent(FoodWebMVCDbContext context)
         {
             _context = context;
         }

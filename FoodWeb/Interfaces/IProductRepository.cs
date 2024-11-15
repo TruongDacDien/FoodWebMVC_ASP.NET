@@ -1,6 +1,6 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Models;
-namespace BinhDinhFoodWeb.Intefaces
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Models;
+namespace FoodWebMVC.Interfaces
 {
     public interface IProductRepository : IRepository<Product>
     {

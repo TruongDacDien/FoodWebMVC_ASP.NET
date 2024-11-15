@@ -1,11 +1,11 @@
-﻿using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using MailKit;
 using MailKit.Security;
 using MailKit.Net.Smtp;
 
-namespace BinhDinhFoodWeb.Intefaces
+namespace FoodWebMVC.Interfaces
 {
 	public interface IMailService
 	{

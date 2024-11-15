@@ -1,7 +1,6 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
-using BinhDinhFoodWeb.Repositories;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
+using FoodWebMVC.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Globalization;
@@ -11,7 +10,7 @@ using log4net;
 using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
 
-namespace BinhDinhFoodWeb.Controllers
+namespace FoodWebMVC.Controllers
 {
     public class CartController : Controller
     {

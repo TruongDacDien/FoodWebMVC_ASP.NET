@@ -1,6 +1,5 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
@@ -8,15 +7,15 @@ using System.Globalization;
 using System.Security.Claims;
 using System.Text.Json;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace FoodWebMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdmHomeController : Controller
     {
 
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
         CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-        public AdmHomeController(BinhDinhFoodDbContext context)
+        public AdmHomeController(FoodWebMVCDbContext context)
         {
             _context = context;
         }

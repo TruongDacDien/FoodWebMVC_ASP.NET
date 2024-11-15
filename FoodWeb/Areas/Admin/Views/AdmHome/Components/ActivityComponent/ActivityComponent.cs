@@ -1,14 +1,14 @@
-﻿using BinhDinhFood.Models;
+﻿using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmHome.Components.ActivityComponent
+namespace FoodWebMVC.Areas.Admin.Views.AdmHome.Components.ActivityComponent
 {
     public class ActivityComponent : ViewComponent
     {
-        private readonly BinhDinhFoodDbContext _context;
+        private readonly FoodWebMVCDbContext _context;
 
-        public ActivityComponent(BinhDinhFoodDbContext context)
+        public ActivityComponent(FoodWebMVCDbContext context)
         {
             _context = context;
         }

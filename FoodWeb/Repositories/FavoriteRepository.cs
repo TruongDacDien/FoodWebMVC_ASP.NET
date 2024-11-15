@@ -1,12 +1,11 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
     public class FavoriteRepository: RepositoryBase<Favorite>, IFavoriteRepository
     {
-        public FavoriteRepository(BinhDinhFoodDbContext context) : base(context)
+        public FavoriteRepository(FoodWebMVCDbContext context) : base(context)
         {
 
         }

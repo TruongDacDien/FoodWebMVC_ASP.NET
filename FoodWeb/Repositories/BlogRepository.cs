@@ -1,12 +1,11 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using FoodWebMVC.Models;
+using FoodWebMVC.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace FoodWebMVC.Repositories
 {
 	public class BlogRepository :RepositoryBase<Blog>, IBlogRepository
 	{
-		public BlogRepository(BinhDinhFoodDbContext context) : base(context){}
+		public BlogRepository(FoodWebMVCDbContext context) : base(context){}
 	}
 }

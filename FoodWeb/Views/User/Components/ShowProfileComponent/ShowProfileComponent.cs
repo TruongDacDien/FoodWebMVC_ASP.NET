@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.User.Components.ShowProfileComponent
+namespace FoodWebMVC.Views.User.Components.ShowProfileComponent
 {
     public class ShowProfileComponent:ViewComponent
     {

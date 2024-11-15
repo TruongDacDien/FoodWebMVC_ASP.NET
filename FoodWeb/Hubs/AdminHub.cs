@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
-namespace BinhDinhFoodWeb.Hubs
+namespace FoodWebMVC.Hubs
 {
     public class AdminHub : Hub
     {
