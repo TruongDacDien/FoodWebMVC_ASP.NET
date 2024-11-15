@@ -152,18 +152,18 @@ INSERT INTO Blog (BlogName, BlogContent, BlogImage, BlogDateCreated) VALUES
 (N'Home Gardening for Fresh Veggies', N'Tips and tricks for starting your own home vegetable garden.', N'images/blog9.jpg', '2024-11-09'),
 (N'Vegan Protein Sources', N'Explore plant-based sources of protein for vegan diets.', N'images/blog10.jpg', '2024-11-10');
 
--- Insert dữ liệu mẫu cho bảng Customer
+-- Insert dữ liệu mẫu cho bảng Customer--Mật khẩu là 123
 INSERT INTO Customer (CustomerFullName, CustomerUserName, CustomerPassword, CustomerDateCreated, CustomerEmail, CustomerAddress, CustomerPhone, CustomerState, CustomerImage) VALUES
-(N'Nguyen Thi Lan', N'nguyenlan', N'password1', '2024-11-01', N'nguyenlan@gmail.com', N'Street 123, Hanoi', N'0987654321', 1, N'images/customer1.jpg'),
-(N'Pham Minh Tu', N'phamtul', N'password2', '2024-11-02', N'phamtul@gmail.com', N'Street 456, Ho Chi Minh', N'0912345678', 1, N'images/customer2.jpg'),
-(N'Le Thi Hoa', N'lehoa', N'password3', '2024-11-03', N'lehoa@gmail.com', N'Street 789, Da Nang', N'0908765432', 1, N'images/customer3.jpg'),
-(N'Trinh Minh Thu', N'trinhthu', N'password4', '2024-11-04', N'trinhthu@gmail.com', N'Street 101, Hanoi', N'0916677889', 1, N'images/customer4.jpg'),
-(N'Hoang Thi Mai', N'hoangmai', N'password5', '2024-11-05', N'hoangmai@gmail.com', N'Street 202, Hanoi', N'0933344556', 0, N'images/customer5.jpg'),
-(N'Nguyen Anh Tuan', N'nguyentuan', N'password6', '2024-11-06', N'nguyentuan@gmail.com', N'Street 303, Ho Chi Minh', N'0981122334', 1, N'images/customer6.jpg'),
-(N'Phan Thanh Son', N'phanthson', N'password7', '2024-11-07', N'phanthson@gmail.com', N'Street 404, Da Nang', N'0909876543', 1, N'images/customer7.jpg'),
-(N'Vu Minh Kien', N'vumkien', N'password8', '2024-11-08', N'vumkien@gmail.com', N'Street 505, Hanoi', N'0911122334', 1, N'images/customer8.jpg'),
-(N'Tran Thi Bich', N'tranbich', N'password9', '2024-11-09', N'tranbich@gmail.com', N'Street 606, Ho Chi Minh', N'0922233445', 0, N'images/customer9.jpg'),
-(N'Phan Thi Mai', N'phanmai', N'password10', '2024-11-10', N'phanmai@gmail.com', N'Street 707, Da Nang', N'0934455667', 1, N'images/customer10.jpg');
+(N'Nguyen Thi Lan', N'nguyenlan', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', '2024-11-01', N'nguyenlan@gmail.com', N'Street 123, Hanoi', N'0987654321', 1, N'images/customer1.jpg'),
+(N'Pham Minh Tu', N'phamtul', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', '2024-11-02', N'phamtul@gmail.com', N'Street 456, Ho Chi Minh', N'0912345678', 1, N'images/customer2.jpg'),
+(N'Le Thi Hoa', N'lehoa', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', '2024-11-03', N'lehoa@gmail.com', N'Street 789, Da Nang', N'0908765432', 1, N'images/customer3.jpg'),
+(N'Trinh Minh Thu', N'trinhthu', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', '2024-11-04', N'trinhthu@gmail.com', N'Street 101, Hanoi', N'0916677889', 1, N'images/customer4.jpg'),
+(N'Hoang Thi Mai', N'hoangmai', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', '2024-11-05', N'hoangmai@gmail.com', N'Street 202, Hanoi', N'0933344556', 0, N'images/customer5.jpg'),
+(N'Nguyen Anh Tuan', N'nguyentuan', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', '2024-11-06', N'nguyentuan@gmail.com', N'Street 303, Ho Chi Minh', N'0981122334', 1, N'images/customer6.jpg'),
+(N'Phan Thanh Son', N'phanthson', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', '2024-11-07', N'phanthson@gmail.com', N'Street 404, Da Nang', N'0909876543', 1, N'images/customer7.jpg'),
+(N'Vu Minh Kien', N'vumkien', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', '2024-11-08', N'vumkien@gmail.com', N'Street 505, Hanoi', N'0911122334', 1, N'images/customer8.jpg'),
+(N'Tran Thi Bich', N'tranbich', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', '2024-11-09', N'tranbich@gmail.com', N'Street 606, Ho Chi Minh', N'0922233445', 0, N'images/customer9.jpg'),
+(N'Phan Thi Mai', N'phanmai', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', '2024-11-10', N'phanmai@gmail.com', N'Street 707, Da Nang', N'0934455667', 1, N'images/customer10.jpg');
 
 -- Insert dữ liệu mẫu cho bảng Admin--Mật khẩu là 123
 INSERT INTO Admin (AdminUserName, AdminPassword, AdminEmail, AdminImage, AdminDateCreated) VALUES
