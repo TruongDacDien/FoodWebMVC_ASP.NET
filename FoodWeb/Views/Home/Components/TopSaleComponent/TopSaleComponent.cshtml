@@ -35,7 +35,7 @@
                         <h3>@item.ProductName</h3>
                     </a>
                     <div class="price_box">
-                        <span class="old_price">@item.ProductPrice.ToString("#,###", cul.NumberFormat) Đ</span>
+                        <span class="old_price"> @(item.ProductPrice?.ToString("#,### Đ", cul.NumberFormat) ?? "0 Đ") </span>
                         <span class="new_price">@((item.ProductPrice - (item.ProductPrice * item.ProductDiscount / 100)).ToString("#,###", cul.NumberFormat)) Đ</span>
                     </div>
                     <ul>

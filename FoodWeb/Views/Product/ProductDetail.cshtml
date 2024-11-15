@@ -88,7 +88,7 @@
 				<div class="row">
 					<div class="col-lg-5 col-md-6">
 						<div class="price_main">
-							<span class="new_price">@Convert.ToDouble(@Model.ProductPrice -(@Convert.ToDouble(@Model.ProductPrice) * @Convert.ToDouble(@Model.ProductDiscount) / 100)).ToString("#,###", cul.NumberFormat) Đ</span>
+							<span class="new_price"> @((Model.ProductPrice - (Model.ProductPrice * Model.ProductDiscount / 100))?.ToString("#,### Đ", cul.NumberFormat) ?? "0 Đ") </span>
 							<span class="percentage">- @Convert.ToDouble(@Model.ProductDiscount)%</span>
 							<span class="old_price">@Model.ProductPrice.ToString("#,###", cul.NumberFormat) Đ</span>
 						</div>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Ansonika">
-    <title>Ăn Vặt Food - Đặc sản Bình Định</title>
+    <title>Ăn Vặt Food - Đồ ăn vặt Việt Nam</title>
     <!-- Favicons-->
     <link rel="shortcut icon" href="~/content/img/logo.ico" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="~/Content/img/Bình_Định_Food__1_-removebg-preview.png">
@@ -91,7 +91,7 @@
                             <div class="main-menu">
                                 <div id="header_menu">
                                     <a asp-action="Index" asp-controller="Home">
-                                        <img src="~/Content/img/Ăn Vặt Food-black.png" alt="" width="300">
+                                        <img src="~/Content/img/Bình Định Food-black.png" alt="" width="300">
                                     </a>
                                     <a href="javascript:void(0);" class="open_close" id="close_in">
                                         <i class="ti-close"></i>
@@ -161,7 +161,7 @@
                                                         <span class="hamburger-inner"></span>
                                                     </span>
                                                 </span>
-                                                Loại đặc sản
+                                                Loại đồ ăn
                                             </a>
                                         </span>
                                         <div id="menu">
@@ -211,7 +211,7 @@
                                                 <div class="hamburger-inner"></div>
                                             </div>
                                         </div>
-                                        Loại đặc sản
+                                        Loại đồ ăn
                                     </a>
                                 </li>
                             </ul>
@@ -241,16 +241,16 @@
                         <h3 data-target="#collapse_1">Truy cập nhanh</h3>
                         <div class="collapse dont-collapse-sm links" id="collapse_1">
                             <ul>
-                                <li><a asp-action="Index" asp-controller="Home">Về chúng tôi</a></li>
-                                <li><a asp-action="Index" asp-controller="Home">Faq</a></li>
-                                <li><a asp-action="Index" asp-controller="Home">Trợ giúp</a></li>
-                                <li><a asp-action="Index" asp-controller="Home">Thông tin tài khoản</a></li>
-                                <li><a asp-action="Index" asp-controller="Home">Bài viết</a></li>
+                                <li><a asp-action="About" asp-controller="Home">Về chúng tôi</a></li>
+                                <li><a asp-action="Help" asp-controller="Home">Faq</a></li>
+                                <li><a asp-action="Help" asp-controller="Home">Trợ giúp</a></li>
+                                <li><a asp-action="Profile" asp-controller="User">Thông tin tài khoản</a></li>
+                                <li><a asp-action="Index" asp-controller="Blog">Bài viết</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <h3 data-target="#collapse_2">Loại đặc sản</h3>
+                        <h3 data-target="#collapse_2">Loại đồ ăn</h3>
                         <div class="collapse dont-collapse-sm links" id="collapse_2">
                             <ul>
                                 @await Component.InvokeAsync("MiniCategoryUnderNavBarComponent")
@@ -261,7 +261,7 @@
                         <h3 data-target="#collapse_3">Liên lạc</h3>
                         <div class="collapse dont-collapse-sm contacts" id="collapse_3">
                             <ul>
-                                <li><i class="ti-home"></i>Quy Nhơn<br>Bình Định - Việt Nam</li>
+                                <li><i class="ti-home"></i>Dĩ An<br>Bình Dương - Việt Nam</li>
                                 <li><i class="ti-headphone-alt"></i>+84 xxx.xxx.xxx</li>
                                 <li><i class="ti-email"></i><a href="#0">xxx@gmail.com</a></li>
                             </ul>

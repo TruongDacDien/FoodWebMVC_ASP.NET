@@ -63,8 +63,8 @@
                         </a>
                         <p>@item.ProductDescription.ToString().Substring(0,100)...</p>
                         <div class="price_box">
-                            <span class="old_price">@item.ProductPrice.ToString("#,###", cul.NumberFormat) Đ</span>
-                            <span class="new_price">@Convert.ToDouble(@item.ProductPrice -(@Convert.ToDouble(@item.ProductPrice) * @Convert.ToDouble(@item.ProductDiscount) / 100)).ToString("#,###", cul.NumberFormat) Đ</span>
+                            <span class="old_price"> @(item.ProductPrice?.ToString("#,### Đ", cul.NumberFormat) ?? "0 Đ") </span>
+                           <span class="new_price"> @((item.ProductPrice - (item.ProductPrice * item.ProductDiscount / 100))?.ToString("#,### Đ", cul.NumberFormat) ?? "0 Đ") </span>
                         </div>
                         <ul>
                             @if (User.Identity.IsAuthenticated)
