@@ -1,5 +1,8 @@
 ﻿CREATE DATABASE BinhDinhFood;
 
+USE BinhDinhFood;
+GO
+    
 CREATE TABLE Categories (
     CategoryId INT IDENTITY(1,1) PRIMARY KEY,
     CategoryName NVARCHAR(255),
