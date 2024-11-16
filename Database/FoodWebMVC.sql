@@ -1,4 +1,5 @@
 ﻿CREATE DATABASE FoodWebMVC;
+GO
 
 USE FoodWebMVC;
 GO
@@ -8,6 +9,7 @@ CREATE TABLE Categories (
     CategoryName NVARCHAR(255),
     CategoryDateCreated DATETIME
 );
+GO
 
 CREATE TABLE Product (
     ProductId INT IDENTITY(1,1) PRIMARY KEY,
@@ -22,6 +24,7 @@ CREATE TABLE Product (
     ProductRating INT,
     FOREIGN KEY (CategoryId) REFERENCES Categories(CategoryId)
 );
+GO
 
 CREATE TABLE Blog (
     BlogId INT IDENTITY(1,1) PRIMARY KEY,
@@ -30,6 +33,7 @@ CREATE TABLE Blog (
     BlogImage NVARCHAR(MAX),
     BlogDateCreated DATETIME
 );
+GO
 
 CREATE TABLE Customer (
     CustomerId INT IDENTITY(1,1) PRIMARY KEY,
@@ -43,6 +47,7 @@ CREATE TABLE Customer (
     CustomerState BIT,
     CustomerImage NVARCHAR(MAX) 
 );
+GO
 
 CREATE TABLE Admin (
     AdminId INT IDENTITY(1,1) PRIMARY KEY,
@@ -52,6 +57,7 @@ CREATE TABLE Admin (
     AdminImage NVARCHAR(MAX),
     AdminDateCreated DATETIME
 );
+GO
 
 CREATE TABLE [Order] (
     OrderId INT IDENTITY(1,1) PRIMARY KEY,
@@ -63,6 +69,7 @@ CREATE TABLE [Order] (
     CustomerId INT,
     FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId)
 );
+GO
 
 CREATE TABLE OrderDetail (
     OrderId INT,
@@ -73,6 +80,7 @@ CREATE TABLE OrderDetail (
     FOREIGN KEY (OrderId) REFERENCES [Order](OrderId),
     FOREIGN KEY (ProductId) REFERENCES Product(ProductId)
 );
+GO
 
 CREATE TABLE Favorite (
     ProductId INT,
@@ -82,6 +90,7 @@ CREATE TABLE Favorite (
     FOREIGN KEY (ProductId) REFERENCES Product(ProductId),
     FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId)
 );
+GO
 
 CREATE TABLE ProductRating (
     ProductRatingId INT IDENTITY(1,1) PRIMARY KEY,
@@ -93,6 +102,7 @@ CREATE TABLE ProductRating (
     FOREIGN KEY (ProductId) REFERENCES Product(ProductId),
     FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId)
 );
+GO
 
 CREATE TABLE Token (
     TokenID INT IDENTITY(1,1) PRIMARY KEY,
@@ -100,6 +110,7 @@ CREATE TABLE Token (
     TokenValue NVARCHAR(255),
     Expiry DATETIME
 );
+GO
 
 CREATE TABLE Banner (
     BannerId INT IDENTITY(1,1) PRIMARY KEY,
@@ -110,11 +121,13 @@ CREATE TABLE Banner (
     BannerImage NVARCHAR(MAX),
     BannerDateCreated DATETIME
 );
+GO
 
 CREATE TABLE EFMigrationsHistory (
     MigrationId NVARCHAR(150) PRIMARY KEY,
     ProductVersion NVARCHAR(32)
 );
+GO
 
 -- Insert dữ liệu mẫu cho bảng Categories
 INSERT INTO Categories (CategoryName, CategoryDateCreated) VALUES
