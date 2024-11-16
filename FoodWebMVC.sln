@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodWebMVC", "FoodWeb\FoodWebMVC.csproj", "{289893D2-BF3D-4C6E-8749-BFE561220E17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodWebMVC", "FoodWebMVC\FoodWebMVC.csproj", "{39F356AE-25D4-462D-8188-DBB7F88F18FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{289893D2-BF3D-4C6E-8749-BFE561220E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{289893D2-BF3D-4C6E-8749-BFE561220E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{289893D2-BF3D-4C6E-8749-BFE561220E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{289893D2-BF3D-4C6E-8749-BFE561220E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39F356AE-25D4-462D-8188-DBB7F88F18FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39F356AE-25D4-462D-8188-DBB7F88F18FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39F356AE-25D4-462D-8188-DBB7F88F18FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39F356AE-25D4-462D-8188-DBB7F88F18FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
