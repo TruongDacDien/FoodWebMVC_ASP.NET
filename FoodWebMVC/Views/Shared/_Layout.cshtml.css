@@ -39,10 +39,17 @@ button.accept-policy {
   line-height: inherit;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+footer {
+    position: static;
+    bottom: auto;
+    width: 100%;
+    z-index: 1; /* Đảm bảo footer không bị che khuất */
+    background: #333; /* Màu nền */
+    color: #fff; /* Màu chữ */
 }
+
+main {
+    display: block;
+    min-height: calc(100vh - 100px); /* Điều chỉnh theo chiều cao footer */
+}
+

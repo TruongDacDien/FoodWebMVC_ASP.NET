@@ -263,25 +263,33 @@
 	
 	//Footer collapse
 	var $headingFooter = $('footer h3');
-	$(window).resize(function() {
-        if($(window).width() <= 768) {
-      		$headingFooter.attr("data-toggle","collapse");
-        } else {
-          $headingFooter.removeAttr("data-toggle","collapse");
-        }
-    }).resize();
+	$(window).resize(function () {
+		if ($(window).width() <= 768) {
+			$headingFooter.attr("data-toggle", "collapse");
+		} else {
+			$headingFooter.removeAttr("data-toggle", "collapse");
+		}
+	}).resize();
 	$headingFooter.on("click", function () {
 		$(this).toggleClass('opened');
 	});
 	
-	/* Footer reveal */
-	if ($(window).width() >= 1024) {
-		$('footer.revealed').footerReveal({
-		shadow: false,
-		opacity:0.6,
-		zIndex: 1
-	});
+	// Ensure footer scrolls with content
+	$('footer.revealed').removeClass('revealed');
+
+	// Adjust <main> to fit full page height if content is too short
+	var adjustMainHeight = function () {
+		var footerHeight = $('footer').outerHeight();
+		var windowHeight = $(window).height();
+		var mainHeight = $('main').outerHeight();
+		if (mainHeight + footerHeight < windowHeight) {
+			$('main').css('min-height', (windowHeight - footerHeight) + 'px');
+		} else {
+			$('main').css('min-height', 'auto');
+		}
 	};
+	$(window).on('resize', adjustMainHeight);
+	$(document).ready(adjustMainHeight);
 
 	// Scroll to top
 	var pxShow = 800; // height on which the button will show
