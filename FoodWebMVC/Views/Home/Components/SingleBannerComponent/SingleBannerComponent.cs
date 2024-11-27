@@ -13,7 +13,7 @@ namespace FoodWebMVC.Views.Home.Components.SingleBannerComponent
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var obj = await _repo.GetByIdAsync(10);
+            var obj = await _repo.GetByIdAsync(6);
             return View("SingleBannerComponent", obj);
         }
     }

@@ -111,7 +111,6 @@
     <None Include="wwwroot\Content\img\arrow_left.svg" />
     <None Include="wwwroot\Content\img\arrow_right.svg" />
     <None Include="wwwroot\Content\img\avatar.jpg" />
-    <None Include="wwwroot\Content\img\banner_menu.jpg" />
     <None Include="wwwroot\Content\img\banner_popup.png" />
     <None Include="wwwroot\Content\img\brands\logo_1.png" />
     <None Include="wwwroot\Content\img\brands\logo_2.png" />
