@@ -242,3 +242,8 @@ INSERT INTO Banner (BannerName, ProductDiscount, BannerPrice, BannerDescription,
 (N'Trái Cây Ép', 8, 15000, N'Nước ép trái cây tươi nguyên chất', N'traicayep.jpg', '2024-11-08'),
 (N'Bánh Bông Lan', 5, 44000, N'Bánh bông lan mềm xốp, thơm ngon', N'banhbonglan.jpg', '2024-11-09'),
 (N'Fish & Chips', 5, 20000, N'Cá chiên giòn và khoai tây chiên', N'fishandchips.jpg', '2024-11-10');
+
+
+
+
+
