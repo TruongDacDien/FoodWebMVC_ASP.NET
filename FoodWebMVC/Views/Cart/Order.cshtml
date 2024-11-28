@@ -29,7 +29,13 @@
 					<ul>
 						@foreach (var item in Model)
 						{
-							<li class="clearfix"><em>@item.Product.ProductName</em>  <span>@Convert.ToDouble(@item.Product.ProductPrice -(@Convert.ToDouble(@item.Product.ProductPrice) * @Convert.ToDouble(@item.Product.ProductDiscount) / 100)).ToString("#,###", cul.NumberFormat) Đ</span></li>
+							var productPrice = item.Product.ProductPrice; // Assume ProductPrice is decimal
+							var discount = item.Product.ProductDiscount; // Assume ProductDiscount is decimal
+							var finalPrice = productPrice - (productPrice * discount / 100);
+							<li class="clearfix">
+								<em>@item.Product.ProductName</em>
+								<span>@finalPrice.ToString("#,###", cul.NumberFormat) Đ</span>
+							</li>
 						}
 					</ul>
 				</div>
