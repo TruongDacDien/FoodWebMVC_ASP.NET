@@ -18,7 +18,7 @@
             <h1>Ăn Vặt Food - Sản phẩm</h1>
         </div>
     </div>
-    <img src="~/Content/img/slides/cac_mon_an_vat.jpg" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;" alt="">
+    <img src="~/Content/img/slides/cac_mon_an_vat.jpg" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;" alt="Banner">
 </div>
 <!-- /top_banner -->
 
@@ -40,7 +40,7 @@
                     </div>
                     <!-- /filter_type -->
                 </div>
-                
+
             </div>
         </aside>
 
@@ -61,17 +61,25 @@
                         <a asp-action="ProductDetail" asp-route-id="@item.ProductId">
                             <h3>@item.ProductName</h3>
                         </a>
-                        <p>@item.ProductDescription.ToString().Substring(0,100)...</p>
+                        <p>
+                            @if (!string.IsNullOrEmpty(item.ProductDescription) && item.ProductDescription.Length > 100)
+                            {
+                                @item.ProductDescription.Substring(0, 100)
+                                    }
+                            else
+                            {
+                                @item.ProductDescription
+                            }
+                        </p>
                         <div class="price_box">
                             <span class="old_price"> @(item.ProductPrice?.ToString("#,### Đ", cul.NumberFormat) ?? "0 Đ") </span>
-                           <span class="new_price"> @((item.ProductPrice - (item.ProductPrice * item.ProductDiscount / 100))?.ToString("#,### Đ", cul.NumberFormat) ?? "0 Đ") </span>
+                            <span class="new_price"> @((item.ProductPrice - (item.ProductPrice * item.ProductDiscount / 100))?.ToString("#,### Đ", cul.NumberFormat) ?? "0 Đ") </span>
                         </div>
                         <ul>
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li><a asp-action="AddInCart" asp-controller="Cart" asp-route-id="@item.ProductId" data-ajax="true" data-ajax-success="addCartAlert" data-ajax-failure="addCartFailAlert" data-ajax-update="#mini-cart" class="btn_1">Thêm vào giỏ hàng</a></li>
                                 <li><a asp-action="AddInFavorite" asp-controller="Cart" asp-route-id="@item.ProductId" data-ajax="true" data-ajax-success="addFavAlert" data-ajax-failure="addCartFailAlert" class="btn_1 gray tooltip-1" data-toggle="tooltip" data-placement="top" title="Thêm vào yêu thích"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
-
                             }
                             else
                             {
@@ -93,7 +101,6 @@
         <!-- /col -->
     </div>
     <!-- /row -->
-
 </div>
 <!-- /container -->
 <script src="~/js/alert.js"></script>
