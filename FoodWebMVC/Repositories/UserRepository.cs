@@ -120,14 +120,15 @@ namespace FoodWebMVC.Repositories
         public string CreateResetPasswordLink(string customerUserName)
         {
             string token = ReturnToken(64);
-            Token toKen = new Token(customerUserName, token, DateTime.Now.AddMinutes(2));
+            Token toKen = new Token(customerUserName, token, DateTime.Now.AddMinutes(15));
             _context.Tokens.Add(toKen);
             _context.SaveChanges();
             return "http://FoodWebMVC-001-site1.dtempurl.com/User/ResetPassword?user=" + customerUserName + "&token=" + token;
         }
         public async Task<bool> HaveAccount(ForgotViewModel model)
         {
-            return await _context.Customers.AnyAsync(x => x.CustomerUserName == model.UserName && x.CustomerEmail == model.Email);
+            return await _context.Customers
+                .AnyAsync(x => x.CustomerUserName == model.UserName && x.CustomerEmail == model.Email);
         }
         public async Task<bool> HaveAccount(string userName,string password)
         {

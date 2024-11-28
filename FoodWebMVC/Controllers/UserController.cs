@@ -82,42 +82,42 @@ namespace FoodWebMVC.Controllers
 			return View();
 		}
 
-		[HttpPost]
-		public async Task<IActionResult> ForgotPasswordAsync(ForgotViewModel model)
-		{
-			if (ModelState.IsValid)
-			{
-				var user = await _repo.HaveAccount(model);
-				if (!user)
-				{
-					ViewBag.Message = "Your username or email is wrong!";
-					return View(model);
-				}
+        [HttpPost]
+        public async Task<IActionResult> ForgotPasswordAsync(ForgotViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _repo.HaveAccount(model);
+                if (!user)
+                {
+                    ViewBag.Message = "Tên tài khoản hoặc email không đúng!";
+                    return View(model);
+                }
 
-				// Create reset password link
-				string linkResetPassword = _repo.CreateResetPasswordLink(model.UserName);
+                string resetLink = _repo.CreateResetPasswordLink(model.UserName);
 
-				try
-				{
-					// Send email with reset link
-					var mailRequest = new MailRequest(model.Email, "Reset Password", linkResetPassword);
-					await _mailService.SendEmailAsync(mailRequest);
-					return RedirectToAction("ShowMessage");
-				}
-				catch (Exception ex)
-				{
-					ViewBag.Message = $"An error occurred while sending the email: {ex.Message}";
-					return View(model);
-				}
-			}
-			else
-			{
-				ViewBag.Message = "Please fill out all information before submitting!";
-				return View(model);
-			}
-		}
+                try
+                {
+                    var mailRequest = new MailRequest(model.Email, "Đặt lại mật khẩu", $"Vui lòng nhấp vào liên kết dưới đây để đặt lại mật khẩu:\n{resetLink}");
+                    await _mailService.SendEmailAsync(mailRequest);
 
-		[HttpGet]
+                    return RedirectToAction("ShowMessage");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = $"Có lỗi xảy ra khi gửi email: {ex.Message}";
+                    return View(model);
+                }
+            }
+            else
+            {
+                ViewBag.Message = "Vui lòng điền đầy đủ thông tin trước khi gửi!";
+                return View(model);
+            }
+        }
+
+
+        [HttpGet]
 		public IActionResult ShowMessage()
 		{
 			ViewBag.Message = "Password reset link has been sent to your email. Check your mailbox.";
