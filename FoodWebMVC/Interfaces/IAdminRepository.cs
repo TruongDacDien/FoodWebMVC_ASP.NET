@@ -1,14 +1,13 @@
 ﻿using FoodWebMVC.Models;
-using FoodWebMVC.Models;
-namespace FoodWebMVC.Interfaces
+
+namespace FoodWebMVC.Interfaces;
+
+public interface IAdminRepository
 {
-    public interface IAdminRepository
-    {
-        public CookieUserItem Validate(LoginViewModel model);
-        public Task<bool> HaveAccount(ForgotViewModel model);
-        public Task<bool> HaveAccount(string userName, string password);
-        public Task ResetPassWord(ResetViewModel model);
-        public string CreateResetPasswordLink(string adminUserName);
-        public Task ChangePasswordUser(ChangePasswordViewModel model, int id);
-    }
+	public CookieUserItem Validate(LoginViewModel model);
+	public Task<bool> HaveAccount(ForgotViewModel model);
+	public Task<bool> HaveAccount(string userName, string password);
+	public Task ResetPassWord(ResetViewModel model);
+	public string CreateResetPasswordLink(string adminUserName);
+	public Task ChangePasswordUser(ChangePasswordViewModel model, int id);
 }

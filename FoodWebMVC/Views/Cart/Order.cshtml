@@ -1,11 +1,11 @@
 ﻿@using System.Globalization
 @{
-	CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+	var cul = CultureInfo.GetCultureInfo("vi-VN");
 }
 
 @{
-    ViewData["Title"] = "Order";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Order";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
@@ -13,7 +13,9 @@
 	<div class="page_header">
 		<div class="breadcrumbs">
 			<ul>
-				<li><a asp-action="Index" asp-controller="Home">Trang chủ</a></li>
+				<li>
+					<a asp-action="Index" asp-controller="Home">Trang chủ</a>
+				</li>
 				<li>Thanh toán</li>
 			</ul>
 		</div>
@@ -31,7 +33,7 @@
 						{
 							var productPrice = item.Product.ProductPrice; // Assume ProductPrice is decimal
 							var discount = item.Product.ProductDiscount; // Assume ProductDiscount is decimal
-							var finalPrice = productPrice - (productPrice * discount / 100);
+							var finalPrice = productPrice - productPrice * discount / 100;
 							<li class="clearfix">
 								<em>@item.Product.ProductName</em>
 								<span>@finalPrice.ToString("#,###", cul.NumberFormat) Đ</span>
@@ -49,26 +51,52 @@
 				<div class="box_general summary">
 					<form asp-action="Order" method="post">
 						<ul>
-							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@ViewBag.Name</span></li>
-							<li class="clearfix"><em><strong>Số điện thoại</strong></em>  <span>@ViewBag.Phone</span></li>
-							<li class="clearfix"><em><strong>Email</strong><span>@ViewBag.Email</span></em>  </li>
-							<li class="clearfix"><em><strong>Địa chỉ</strong></em>  <span>@ViewBag.Address</span></li>
+							<li class="clearfix">
+								<em>
+									<strong>Họ tên</strong>
+								</em> <span>@ViewBag.Name</span>
+							</li>
+							<li class="clearfix">
+								<em>
+									<strong>Số điện thoại</strong>
+								</em> <span>@ViewBag.Phone</span>
+							</li>
+							<li class="clearfix">
+								<em>
+									<strong>Email</strong><span>@ViewBag.Email</span>
+								</em>
+							</li>
+							<li class="clearfix">
+								<em>
+									<strong>Địa chỉ</strong>
+								</em> <span>@ViewBag.Address</span>
+							</li>
 						</ul>
 						<ul>
-							<li class="clearfix"><em><strong>Tổng tiền hàng</strong></em>  <span>@ViewData["TotalSubMoney"]</span></li>
-							<li class="clearfix"><em><strong>Phí vận chuyển</strong></em> <span>@ViewData["ShippingCost"]</span></li>
+							<li class="clearfix">
+								<em>
+									<strong>Tổng tiền hàng</strong>
+								</em> <span>@ViewData["TotalSubMoney"]</span>
+							</li>
+							<li class="clearfix">
+								<em>
+									<strong>Phí vận chuyển</strong>
+								</em> <span>@ViewData["ShippingCost"]</span>
+							</li>
 
 						</ul>
 						<ul>
-                            <li>
-                                <label>Chọn phương thức thanh toán</label>
-                                <select name="ChoosePaymentMethod" id="cars">
-                                    <option value="0">Trả bằng tiền mặt khi nhận hàng</option>
-                                    <option value="2">VnPay</option>
-                                </select>
-                            </li>
+							<li>
+								<label>Chọn phương thức thanh toán</label>
+								<select name="ChoosePaymentMethod" id="cars">
+									<option value="0">Trả bằng tiền mặt khi nhận hàng</option>
+									<option value="2">VnPay</option>
+								</select>
+							</li>
 						</ul>
-						<ul><span>@ViewBag.ErrorMessage</span></ul>
+						<ul>
+							<span>@ViewBag.ErrorMessage</span>
+						</ul>
 						<div class="total clearfix">TỔNG TIỀN <span>@ViewData["TotalMoney"] Đ</span></div>
 						<button type="submit" class="btn_1 full-width">Đồng ý và Thanh toán</button>
 					</form>

@@ -14,11 +14,11 @@
 							Đăng bởi <a>@item.Customer.CustomerFullName</a><span>|</span>@item.PRDateCreated.ToShortDateString()<span>|</span>
 							<div class="clearfix add_bottom_10">
 								<span class="rating">
-									@for (int i = 1; i <= @item.Stars; i++)
+									@for (var i = 1; i <= item.Stars; i++)
 									{
 										<i class="icon-star voted"></i>
 									}
-									@for (int i = 5 - @item.Stars; i >=1 ; i--)
+									@for (int i = 5 - item.Stars; i >= 1; i--)
 									{
 										<i class="bi bi-star"></i>
 									}

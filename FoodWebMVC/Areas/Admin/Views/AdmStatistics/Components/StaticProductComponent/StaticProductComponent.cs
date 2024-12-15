@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace FoodWebMVC.Areas.Admin.Views.AdmStatistics.Components.StaticProductComponent
+namespace FoodWebMVC.Areas.Admin.Views.AdmStatistics.Components.StaticProductComponent;
+
+public class StaticProductComponent : ViewComponent
 {
-    public class StaticProductComponent : ViewComponent
-    {
-        public IViewComponentResult Invoke()
-        {
-            return View();
-        }
-    }
+	public IViewComponentResult Invoke()
+	{
+		return View();
+	}
 }

@@ -1,15 +1,11 @@
-﻿using FoodWebMVC.Interfaces;
-using FoodWebMVC.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace FoodWebMVC.Views.User.Components.ChangePassComponent
+namespace FoodWebMVC.Views.User.Components.ChangePassComponent;
+
+public class ChangePassComponent : ViewComponent
 {
-    public class ChangePassComponent : ViewComponent
-    {
-        public IViewComponentResult Invoke()
-        {
-            return View();  
-        }
-    }
+	public IViewComponentResult Invoke()
+	{
+		return View();
+	}
 }

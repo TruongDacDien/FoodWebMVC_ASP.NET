@@ -1,14 +1,17 @@
-﻿
-@{
-    ViewData["Title"] = "Checkout";
+﻿@{
+	ViewData["Title"] = "Checkout";
 }
 
 <div class="container margin_30">
 	<div class="page_header">
 		<div class="breadcrumbs">
 			<ul>
-				<li><a asp-action="Index" asp-controller="Home">Trang chủ</a></li>
-				<li><a asp-action="Index" asp-controller="Product">Sản phẩm</a></li>
+				<li>
+					<a asp-action="Index" asp-controller="Home">Trang chủ</a>
+				</li>
+				<li>
+					<a asp-action="Index" asp-controller="Product">Sản phẩm</a>
+				</li>
 			</ul>
 		</div>
 		<h1>Thanh toán</h1>
@@ -49,7 +52,12 @@
 						</label>
 					</li>
 				</ul>
-				<div class="payment_info d-none d-sm-block"><figure><img src="img/cards_all.svg" alt=""></figure>	<p>Sensibus reformidans interpretaris sit ne, nec errem nostrum et, te nec meliore philosophia. At vix quidam periculis. Solet tritani ad pri, no iisque definitiones sea.</p></div>
+				<div class="payment_info d-none d-sm-block">
+					<figure>
+						<img src="img/cards_all.svg" alt="">
+					</figure>
+					<p>Sensibus reformidans interpretaris sit ne, nec errem nostrum et, te nec meliore philosophia. At vix quidam periculis. Solet tritani ad pri, no iisque definitiones sea.</p>
+				</div>
 
 				<h6 class="pb-2">Shipping Method</h6>
 

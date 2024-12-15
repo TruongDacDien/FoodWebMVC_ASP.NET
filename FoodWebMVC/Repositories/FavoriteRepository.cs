@@ -1,13 +1,11 @@
-﻿using FoodWebMVC.Models;
-using FoodWebMVC.Interfaces;
+﻿using FoodWebMVC.Interfaces;
+using FoodWebMVC.Models;
 
-namespace FoodWebMVC.Repositories
+namespace FoodWebMVC.Repositories;
+
+public class FavoriteRepository : RepositoryBase<Favorite>, IFavoriteRepository
 {
-    public class FavoriteRepository: RepositoryBase<Favorite>, IFavoriteRepository
-    {
-        public FavoriteRepository(FoodWebMVCDbContext context) : base(context)
-        {
-
-        }
-    }
+	public FavoriteRepository(FoodWebMVCDbContext context) : base(context)
+	{
+	}
 }

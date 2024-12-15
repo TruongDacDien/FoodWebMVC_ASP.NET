@@ -1,19 +1,18 @@
-﻿using FoodWebMVC.Models;
-using FoodWebMVC.Interfaces;
+﻿using FoodWebMVC.Interfaces;
+using FoodWebMVC.Models;
 
-namespace FoodWebMVC.Repositories
+namespace FoodWebMVC.Repositories;
+
+public class OrderRepository : RepositoryBase<Order>, IOrderRepository
 {
-	public class OrderRepository: RepositoryBase<Order>, IOrderRepository
-    {
-		public OrderRepository(FoodWebMVCDbContext context): base(context)
-		{
+	public OrderRepository(FoodWebMVCDbContext context) : base(context)
+	{
+	}
 
-		}
-		public async Task UpdatePaymentState(int orderId)
-        {
-			var order = await _context.Orders.FindAsync(orderId);
-			order.PaidState = true;
-			await _context.SaveChangesAsync();
-        }
+	public async Task UpdatePaymentState(int orderId)
+	{
+		var order = await _context.Orders.FindAsync(orderId);
+		order.PaidState = true;
+		await _context.SaveChangesAsync();
 	}
 }

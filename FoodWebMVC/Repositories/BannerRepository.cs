@@ -1,13 +1,11 @@
-﻿using FoodWebMVC.Models;
-using FoodWebMVC.Interfaces;
+﻿using FoodWebMVC.Interfaces;
+using FoodWebMVC.Models;
 
-namespace FoodWebMVC.Repositories
+namespace FoodWebMVC.Repositories;
+
+public class BannerRepository : RepositoryBase<Banner>, IBannerRepository
 {
-    public class BannerRepository : RepositoryBase<Banner>, IBannerRepository
-    {
-        public BannerRepository(FoodWebMVCDbContext context): base(context)
-        {
-
-        }
-    }
+	public BannerRepository(FoodWebMVCDbContext context) : base(context)
+	{
+	}
 }

@@ -1,13 +1,13 @@
 ﻿@using System.Globalization
-@using FoodWebMVC.Models
 @{
-	CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+	var cul = CultureInfo.GetCultureInfo("vi-VN");
 	var product = new List<Product>();
 }
 <script src="https://unpkg.com/js-image-zoom@0.4.1/js-image-zoom.js" type="application/javascript"></script>
 <div class="container margin_30">
 	<div class="countdown_inner">
-		-20% Đợt giảm giá kết thúc sau <div data-countdown="@DateTime.Now.AddHours(1).ToString("yyyy-MM-dd h:mm tt")" class="countdown"></div>
+		-20% Đợt giảm giá kết thúc sau
+		<div data-countdown="@DateTime.Now.AddHours(1).ToString("yyyy-MM-dd h:mm tt")" class="countdown"></div>
 	</div>
 
 	<div class="row">
@@ -15,25 +15,53 @@
 			<div class="all">
 				<div class="slider" id="exzoom">
 					<div class="owl-carousel owl-theme main">
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: contrast(200%);"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: drop-shadow(8px 8px 10px gray);"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: grayscale(50%);"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: hue-rotate(90deg);"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: brightness(200%);"></div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item-box">
+						</div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: contrast(200%);">
+						</div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: drop-shadow(8px 8px 10px gray);">
+						</div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: grayscale(50%);">
+						</div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: hue-rotate(90deg);">
+						</div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: brightness(200%);">
+						</div>
 					</div>
-					<div class="left nonl"><i class="ti-angle-left"></i></div>
-					<div class="right"><i class="ti-angle-right"></i></div>
+					<div class="left nonl">
+						<i class="ti-angle-left"></i>
+					</div>
+					<div class="right">
+						<i class="ti-angle-right"></i>
+					</div>
 				</div>
 
 				<div class="slider-two">
 					<div class="owl-carousel owl-theme thumbs">
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item active"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: contrast(200%);"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: drop-shadow(8px 8px 10px gray);"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: grayscale(50%);"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: hue-rotate(90deg);"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: brightness(200%);"></div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item active">
+						</div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: contrast(200%);">
+						</div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: drop-shadow(8px 8px 10px gray);">
+						</div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: grayscale(50%);">
+						</div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: hue-rotate(90deg);">
+						</div>
+						<div>
+							<img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: brightness(200%);">
+						</div>
 					</div>
 					<div class="left-t nonl-t"></div>
 					<div class="right-t"></div>
@@ -45,20 +73,26 @@
 		<div class="col-md-6">
 			<div class="breadcrumbs">
 				<ul>
-					<li><a asp-action="Index" asp-controller="Home">Trang chủ</a></li>
-					<li><a asp-action="Index" asp-controller="Product">Sản phẩm</a></li>
-					<li><a>@Model.ProductName</a></li>
+					<li>
+						<a asp-action="Index" asp-controller="Home">Trang chủ</a>
+					</li>
+					<li>
+						<a asp-action="Index" asp-controller="Product">Sản phẩm</a>
+					</li>
+					<li>
+						<a>@Model.ProductName</a>
+					</li>
 				</ul>
 			</div>
 			<!-- /page_header -->
 			<form asp-action="AddInCart"
-						   asp-controller="Cart"
-						   asp-route-id="@Model.ProductId" 
-						   data-ajax="true" 
-						   data-ajax-success="addCartAlert" 
-						   data-ajax-failure="addCartFailAlert" 
-						   data-ajax-update="#mini-cart"
-						   class="prod_info">
+			      asp-controller="Cart"
+			      asp-route-id="@Model.ProductId"
+			      data-ajax="true"
+			      data-ajax-success="addCartAlert"
+			      data-ajax-failure="addCartFailAlert"
+			      data-ajax-update="#mini-cart"
+			      class="prod_info">
 				<h1>@Model.ProductName</h1>
 				<span class="rating">
 					<i class="icon-star voted"></i>
@@ -67,10 +101,14 @@
 					<i class="icon-star voted"></i>
 					<i class="icon-star"></i><em>@ViewBag.Review reviews</em>
 				</span>
-				<p><small>Mã: @Model.ProductId</small><br></p>
+				<p>
+					<small>Mã: @Model.ProductId</small><br>
+				</p>
 				<div class="prod_options">
 					<div class="row">
-						<label class="col-xl-5 col-lg-5  col-md-6 col-6"><strong>Số lượng</strong></label>
+						<label class="col-xl-5 col-lg-5  col-md-6 col-6">
+							<strong>Số lượng</strong>
+						</label>
 						<div class="col-xl-4 col-lg-5 col-md-6 col-6">
 							<div class="numbers-row">
 								<input type="text" value="1" name="quantity" class="qty2" name="quantity_1">
@@ -83,8 +121,8 @@
 				<div class="row">
 					<div class="col-lg-5 col-md-6">
 						<div class="price_main">
-							<span class="new_price"> @((Model.ProductPrice - (Model.ProductPrice * Model.ProductDiscount / 100))?.ToString("#,### Đ", cul.NumberFormat) ?? "0 Đ") </span>
-							<span class="percentage">- @Convert.ToDouble(@Model.ProductDiscount)%</span>
+							<span class="new_price"> @((Model.ProductPrice - Model.ProductPrice * Model.ProductDiscount / 100)?.ToString("#,### Đ", cul.NumberFormat) ?? "0 Đ") </span>
+							<span class="percentage">- @Convert.ToDouble(Model.ProductDiscount)%</span>
 							<span class="old_price">@Model.ProductPrice.ToString("#,###", cul.NumberFormat) Đ</span>
 						</div>
 					</div>
@@ -108,11 +146,17 @@
 				<div class="product_actions">
 					<ul>
 						<li>
-							@if (User.Identity.IsAuthenticated){
-								<a asp-action="AddInFavorite" asp-controller="Cart" asp-route-id="@Model.ProductId" data-ajax="true" data-ajax-success="addFavAlert" data-ajax-failure="addCartFailAlert" ><i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span></a>
-							}else{
-
-								<a ><i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span></a>
+							@if (User.Identity.IsAuthenticated)
+							{
+								<a asp-action="AddInFavorite" asp-controller="Cart" asp-route-id="@Model.ProductId" data-ajax="true" data-ajax-success="addFavAlert" data-ajax-failure="addCartFailAlert">
+									<i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span>
+								</a>
+							}
+							else
+							{
+								<a >
+									<i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span>
+								</a>
 							}
 						</li>
 					</ul>
@@ -178,18 +222,24 @@
 								<div class="table-responsive">
 									<table class="table table-sm table-striped">
 										<tbody>
-											<tr>
-												<td><strong>Tên sản phẩm</strong></td>
-												<td>@Model.ProductName</td>
-											</tr>
-											<tr>
-												<td><strong>Số lượng trong kho</strong></td>
-												<td>@Model.ProductAmount</td>
-											</tr>
-											<tr>
-												<td><strong>Giảm giá</strong></td>
-												<td>@Model.ProductDiscount % </td>
-											</tr>
+										<tr>
+											<td>
+												<strong>Tên sản phẩm</strong>
+											</td>
+											<td>@Model.ProductName</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Số lượng trong kho</strong>
+											</td>
+											<td>@Model.ProductAmount</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Giảm giá</strong>
+											</td>
+											<td>@Model.ProductDiscount % </td>
+										</tr>
 										</tbody>
 									</table>
 								</div>
@@ -211,11 +261,13 @@
 				<div id="collapse-B" class="collapse" role="tabpanel" aria-labelledby="heading-B">
 					<div class="card-body">
 						<div class="row justify-content-between">
-							@await Component.InvokeAsync("ProductRatingComponent", new { id = @Model.ProductId })
+							@await Component.InvokeAsync("ProductRatingComponent", new { id = Model.ProductId })
 						</div>
 						<!-- /row -->
 					</div>
-					<p class="text-right"><a asp-action="LeaveReview" asp-controller="Product" asp-route-id="@Model.ProductId" class="btn_1">Bình luận</a></p>
+					<p class="text-right">
+						<a asp-action="LeaveReview" asp-controller="Product" asp-route-id="@Model.ProductId" class="btn_1">Bình luận</a>
+					</p>
 					<!-- /card-body -->
 				</div>
 			</div>

@@ -1,13 +1,12 @@
 ﻿using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FoodWebMVC.Views.Cart.Components.CartComponent
+namespace FoodWebMVC.Views.Cart.Components.CartComponent;
+
+public class CartComponent : ViewComponent
 {
-	public class CartComponent : ViewComponent
+	public IViewComponentResult Invoke(IEnumerable<Item> list)
 	{
-        public IViewComponentResult Invoke(IEnumerable<Item> list)
-        {
-            return View(list);
-        }
-    }
+		return View(list);
+	}
 }

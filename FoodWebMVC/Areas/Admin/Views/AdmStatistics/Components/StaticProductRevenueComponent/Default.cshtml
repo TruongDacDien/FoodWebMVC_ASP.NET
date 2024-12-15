@@ -1,4 +1,5 @@
-﻿@*
+﻿@using Newtonsoft.Json
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -8,19 +9,19 @@
 <!--<div class="row">-->
 <!-- Pie Chart -->
 <!--<div class="col-xl-6 col-lg-7">
-    <div class="card shadow mb-4">-->
+<div class="card shadow mb-4">-->
 <!-- Card Header - Dropdown -->
 <!--<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-    <h6 class="m-0 font-weight-bold text-primary">
-        Doanh thu gói theo nă
-    </h6>
+	<h6 class="m-0 font-weight-bold text-primary">
+		Doanh thu gói theo nă
+	</h6>
 </div>-->
 <!-- Card Body -->
 <!--<div class="card-body">
 
-            </div>
-        </div>
-    </div>
+</div>
+</div>
+</div>
 </div>-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="~/js/jquery.js"></script>
@@ -30,12 +31,10 @@
 
 
         var ctx = document.getElementById('newchartRevenue').getContext('2d');
-        var model = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model) as String);
+        var model = @Html.Raw(JsonConvert.SerializeObject(Model) as string);
         console.log(model)
         var doanhthunam = new Chart(ctx, model)
     });
 
 
 </script>
-
-

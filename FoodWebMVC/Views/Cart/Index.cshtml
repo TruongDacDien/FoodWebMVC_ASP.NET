@@ -1,11 +1,12 @@
-﻿@model IEnumerable<FoodWebMVC.Models.Item>
+﻿@model IEnumerable<Item>
 
 @{
 	ViewData["Title"] = "Giỏ hàng";
 }
 <div id="render-body" class="">
 
-@await Component.InvokeAsync("CartComponent", new {
+	@await Component.InvokeAsync("CartComponent", new
+	{
 		list = Model
-		})
+	})
 </div>

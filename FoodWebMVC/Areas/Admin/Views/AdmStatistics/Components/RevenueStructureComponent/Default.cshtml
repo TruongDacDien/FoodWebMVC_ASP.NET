@@ -1,4 +1,4 @@
-﻿
+﻿@using Newtonsoft.Json
 <canvas id="newchart"></canvas>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -7,7 +7,7 @@
 <script type="text/javascript">
     $(function () {
         var ctx = document.getElementById('newchart').getContext('2d');
-        var model = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model) as String);
+        var model = @Html.Raw(JsonConvert.SerializeObject(Model) as string);
         var doanhthunam = new Chart(ctx, model)
     });
 </script>

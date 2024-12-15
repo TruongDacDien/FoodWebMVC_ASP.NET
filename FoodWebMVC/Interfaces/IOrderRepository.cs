@@ -1,10 +1,8 @@
 ﻿using FoodWebMVC.Models;
-using FoodWebMVC.Models;
 
-namespace FoodWebMVC.Interfaces
+namespace FoodWebMVC.Interfaces;
+
+public interface IOrderRepository : IRepository<Order>
 {
-	public interface IOrderRepository : IRepository<Order>
-    {
-		public Task UpdatePaymentState(int orderId);
-	}
+	public Task UpdatePaymentState(int orderId);
 }

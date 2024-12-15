@@ -1,6 +1,6 @@
-using FoodWebMVC.Models;
 using FoodWebMVC.Hubs;
 using FoodWebMVC.Interfaces;
+using FoodWebMVC.Models;
 using FoodWebMVC.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<FoodWebMVCDbContext>(options => options.UseSqlServer(
 	builder.Configuration.GetConnectionString("DefaultConnection")
-	));
+));
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
@@ -116,6 +116,7 @@ if (!app.Environment.IsDevelopment())
 	// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
 	app.UseHsts();
 }
+
 // handler error 404 page
 app.UseStatusCodePagesWithRedirects("/Home/Error?statuscode = {0}");
 
@@ -134,22 +135,20 @@ app.UseSession();
 app.UseCors();
 
 
-
 //app.MapControllerRoute(
 //    name: "Admin",
 //    pattern: "{area:exists}/{controller=AdmBlog}/{action=Index}/{id?}");
 
 
 app.MapAreaControllerRoute(
-	name: "Admin",
-	areaName: "Admin",
-	pattern: "Admin/{controller=AdmAccount}/{action=Login}/{id?}");
+	"Admin",
+	"Admin",
+	"Admin/{controller=AdmAccount}/{action=Login}/{id?}");
 
 
 app.MapControllerRoute(
-	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
-
+	"default",
+	"{controller=Home}/{action=Index}/{id?}");
 
 
 app.MapHub<CustomerHub>("/hubs/customerCount");

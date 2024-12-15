@@ -1,7 +1,6 @@
-﻿namespace FoodWebMVC.Interfaces
+﻿namespace FoodWebMVC.Interfaces;
+
+public interface ITokenRepository
 {
-    public interface ITokenRepository
-    {
-        public bool CheckToken(string userName, string token);
-    }
+	public bool CheckToken(string userName, string token);
 }

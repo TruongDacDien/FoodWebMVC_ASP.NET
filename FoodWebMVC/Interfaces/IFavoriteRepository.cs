@@ -1,8 +1,7 @@
 ﻿using FoodWebMVC.Models;
 
-namespace FoodWebMVC.Interfaces
+namespace FoodWebMVC.Interfaces;
+
+public interface IFavoriteRepository : IRepository<Favorite>
 {
-    public interface IFavoriteRepository : IRepository<Favorite>
-    {
-    }
 }

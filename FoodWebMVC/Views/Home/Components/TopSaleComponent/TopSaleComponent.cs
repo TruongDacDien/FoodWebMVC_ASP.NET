@@ -1,21 +1,21 @@
 ﻿using FoodWebMVC.Interfaces;
-using FoodWebMVC.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FoodWebMVC.Views.Home.Components.TopSaleComponent
-{
-    public class TopSaleComponent : ViewComponent
-    {
-        private readonly IProductRepository _repo;
+namespace FoodWebMVC.Views.Home.Components.TopSaleComponent;
 
-        public TopSaleComponent(IProductRepository repo)
-        {
-            _repo = repo;
-        }
-        public async Task<IViewComponentResult> InvokeAsync() 
-        { 
-            var obj = await _repo.GetListAsync(filter: x=>x.ProductDiscount>0, orderBy: x=>x.OrderByDescending(x=>x.ProductId), take: 8);
-            return View("TopSaleComponent", obj);
-        }
-    }
+public class TopSaleComponent : ViewComponent
+{
+	private readonly IProductRepository _repo;
+
+	public TopSaleComponent(IProductRepository repo)
+	{
+		_repo = repo;
+	}
+
+	public async Task<IViewComponentResult> InvokeAsync()
+	{
+		var obj = await _repo.GetListAsync(x => x.ProductDiscount > 0, x => x.OrderByDescending(x => x.ProductId),
+			take: 8);
+		return View("TopSaleComponent", obj);
+	}
 }

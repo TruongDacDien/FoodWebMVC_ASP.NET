@@ -1,9 +1,7 @@
 ﻿using FoodWebMVC.Models;
 
-namespace FoodWebMVC.Interfaces
+namespace FoodWebMVC.Interfaces;
+
+public interface IBlogRepository : IRepository<Blog>
 {
-	public interface IBlogRepository : IRepository<Blog>
-	{
-	}
 }
-	
