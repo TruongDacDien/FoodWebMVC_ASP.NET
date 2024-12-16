@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using X.PagedList;
+using X.PagedList.Extensions;
 
 namespace FoodWebMVC.Areas.Admin.Controllers;
 

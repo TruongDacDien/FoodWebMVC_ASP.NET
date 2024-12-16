@@ -16,21 +16,22 @@ public class ActivityComponent : ViewComponent
 	public async Task<IViewComponentResult> InvokeAsync(string order)
 	{
 		var color = new List<string>
-		{
-			"text-danger",
-			"text-primary",
-			"text-secondary",
-			"text-info",
-			"text-muted",
-			"text-warning",
-			"text-success"
-		};
+	{
+		"text-danger",
+		"text-primary",
+		"text-secondary",
+		"text-info",
+		"text-muted",
+		"text-warning",
+		"text-success"
+	};
 		var random = new Random();
+
 		IQueryable<OrderDetail> query = _context.OrderDetails;
+
 		switch (order)
 		{
 			case "today":
-				//query = query.Where(od => od.Order.DayOrder.Date == DateTime.Now.Date);
 				query = query.Where(od => od.Order.DayOrder.Date == DateTime.Now.Date);
 				ViewBag.ActivityTime = "Hôm nay";
 				break;
@@ -38,7 +39,6 @@ public class ActivityComponent : ViewComponent
 				query = query.Where(od =>
 					od.Order.DayOrder.Month == DateTime.Now.Month &&
 					od.Order.DayOrder.Year == DateTime.Now.Year);
-
 				ViewBag.ActivityTime = "Tháng này";
 				break;
 			case "year":
@@ -50,17 +50,27 @@ public class ActivityComponent : ViewComponent
 				break;
 		}
 
-		var result = await query
+		// Lấy dữ liệu từ database trước (chỉ các thuộc tính cần thiết)
+		var data = await query
 			.OrderByDescending(od => od.Order.DayDelivery)
 			.ThenByDescending(od => od.Order.DayOrder)
-			.Select(od => new ActivityViewModel
+			.Select(od => new
 			{
-				BuyTime = od.Order.DayOrder,
+				od.Order.DayOrder,
 				UserFullName = od.Order.Customer.CustomerFullName,
-				Quantity = od.Quantity,
-				ProductName = od.Product.ProductName,
-				TextColor = color[random.Next(0, color.Count)]
+				od.Quantity,
+				ProductName = od.Product.ProductName
 			}).Take(7).ToListAsync();
+
+		// Thực hiện xử lý ngẫu nhiên trong bộ nhớ
+		var result = data.Select(item => new ActivityViewModel
+		{
+			BuyTime = item.DayOrder,
+			UserFullName = item.UserFullName,
+			Quantity = item.Quantity,
+			ProductName = item.ProductName,
+			TextColor = color[random.Next(color.Count)]
+		}).ToList();
 
 		return View(result);
 	}

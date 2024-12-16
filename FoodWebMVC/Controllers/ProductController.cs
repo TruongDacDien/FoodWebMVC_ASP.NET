@@ -2,6 +2,7 @@
 using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList;
+using X.PagedList.Extensions;
 
 namespace FoodWebMVC.Controllers;
 
