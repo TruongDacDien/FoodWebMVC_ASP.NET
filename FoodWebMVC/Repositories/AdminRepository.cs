@@ -9,10 +9,12 @@ namespace FoodWebMVC.Repositories;
 public class AdminRepository : IAdminRepository
 {
 	private readonly FoodWebMVCDbContext _context;
+	private readonly IConfiguration _configuration;
 
-	public AdminRepository(FoodWebMVCDbContext context)
+	public AdminRepository(FoodWebMVCDbContext context, IConfiguration configuration)
 	{
 		_context = context;
+		_configuration = configuration;
 	}
 
 	public CookieUserItem Validate(LoginViewModel model)
@@ -38,7 +40,9 @@ public class AdminRepository : IAdminRepository
 		var toKen = new Token(adminUserName, token, DateTime.Now.AddMinutes(2));
 		_context.Tokens.Add(toKen);
 		_context.SaveChanges();
-		return "https://localhost:44316/Admin/AdmAccount/ResetPassword?user=" + adminUserName + "&token=" + token;
+
+		var baseUrl = _configuration["AppSettings:BaseUrl"]; // Lấy BaseUrl từ appsettings.json
+		return $"{baseUrl}/Admin/AdmAccount/ResetPassword?user={adminUserName}&token={token}";
 	}
 
 	public async Task<bool> HaveAccount(ForgotViewModel model)

@@ -10,6 +10,14 @@ public class UserRepository : IUserRepository
 {
 	private readonly IWebHostEnvironment _appEnvironment;
 	private readonly FoodWebMVCDbContext _context;
+	private readonly IConfiguration _configuration;
+
+	public UserRepository(FoodWebMVCDbContext context, IWebHostEnvironment appEnvironment, IConfiguration configuration)
+	{
+		_context = context;
+		_appEnvironment = appEnvironment;
+		_configuration = configuration;
+	}
 
 	public UserRepository(FoodWebMVCDbContext context, IWebHostEnvironment appEnvironment)
 	{
@@ -78,8 +86,9 @@ public class UserRepository : IUserRepository
 		var toKen = new Token(customerUserName, token, DateTime.Now.AddMinutes(2));
 		_context.Tokens.Add(toKen);
 		_context.SaveChanges();
-		return "http://FoodWebMVC-001-site1.dtempurl.com/User/ResetPassword?user=" + customerUserName + "&token=" +
-		       token;
+
+		var baseUrl = _configuration["AppSettings:BaseUrl"];
+		return $"{baseUrl}/User/ResetPassword?user={customerUserName}&token={token}";
 	}
 
 	public async Task<bool> HaveAccount(ForgotViewModel model)

@@ -1,0 +1,14 @@
+﻿
+Chạy file ngrok.exe
+
+Nhập và chạy lần lượt 2 lệnh sau:
+  ngrok config add-authtoken 2qJDNlekUCaGf01G78B99Vrb4Pa_4939xqxnEPz2DEMhrR2q2
+  ngrok http https://localhost:7049
+
+Sau khi chạy xong thì lấy URL Ngrok dán vô các file sau: 
+
+ - URL xuất hiện trong phần Forwarding: [URL] -> https://localhost:7049
+
+ - appsettings.json: thay vô BaseUrl
+
+ - appsettings.Development.json: thay vô BaseUrl

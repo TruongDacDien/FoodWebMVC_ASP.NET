@@ -74,7 +74,14 @@ public class AdmAccountController : Controller
 
 			// Create reset password link and send email
 			var linkResetPassword = _repo.CreateResetPasswordLink(model.UserName);
-			var mailRequest = new MailRequest(model.Email, "Reset Password", linkResetPassword);
+			var mailRequest = new MailRequest(
+				toEmail: model.Email,
+				subject: "Reset Your Password",
+				body: $"<p>Dear {model.UserName},</p>" +
+					  $"<p>Click the link below to reset your password:</p>" +
+					  $"<a href='{linkResetPassword}'>Reset Password</a><br>" +
+					  $"<p>If you did not request this, please ignore this email.</p>");
+			await _mailService.SendEmailAsync(mailRequest);
 
 			try
 			{

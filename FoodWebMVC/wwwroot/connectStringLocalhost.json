@@ -8,7 +8,7 @@
   "AllowedHosts": "*",
 
   "ConnectionStrings": {
-    "DefaultConnection": "Server=TRUONGNHON\\SQLEXPRESS; Database=FoodWebMVC; Trusted_Connection=True; MultipleActiveResultSets=true; user id=sa; password=123;"
+    "DefaultConnection": "Data Source=DESKTOP-O6AO007\\SQLEXPRESS;Initial Catalog=FoodWebMVC;Integrated Security=True;Encrypt=True;Trust Server Certificate=True"
   },
   "MailSettings": {
     "Mail": "<fromemail>",

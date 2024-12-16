@@ -30,21 +30,13 @@ builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddTransient<IMailService, MailService>();
 
-builder.Services.AddDistributedMemoryCache();
 
-builder.Services.AddSession(options =>
-{
-	options.IdleTimeout = TimeSpan.FromSeconds(10);
-	options.Cookie.HttpOnly = true;
-	options.Cookie.IsEssential = true;
-});
 builder.Services.AddAuthentication("Signin")
 	.AddCookie("Signin", options =>
 	{
 		options.AccessDeniedPath = new PathString("/Account/Access");
 		options.Cookie = new CookieBuilder
 		{
-			//Domain = "",
 			HttpOnly = true,
 			Name = "SigninCookie",
 			Path = "/",
@@ -55,30 +47,63 @@ builder.Services.AddAuthentication("Signin")
 		{
 			OnSignedIn = context =>
 			{
-				Console.WriteLine("{0} - {1}: {2}", DateTime.Now,
-					"OnSignedIn", context.Principal.Identity.Name);
+				Console.WriteLine("{0} - {1}: {2}", DateTime.Now, "OnSignedIn", context.Principal.Identity.Name);
 				return Task.CompletedTask;
 			},
 			OnSigningOut = context =>
 			{
-				Console.WriteLine("{0} - {1}: {2}", DateTime.Now,
-					"OnSigningOut", context.HttpContext.User.Identity.Name);
+				Console.WriteLine("{0} - {1}: {2}", DateTime.Now, "OnSigningOut", context.HttpContext.User.Identity.Name);
 				return Task.CompletedTask;
 			},
 			OnValidatePrincipal = context =>
 			{
-				Console.WriteLine("{0} - {1}: {2}", DateTime.Now,
-					"OnValidatePrincipal", context.Principal.Identity.Name);
+				Console.WriteLine("{0} - {1}: {2}", DateTime.Now, "OnValidatePrincipal", context.Principal.Identity.Name);
 				return Task.CompletedTask;
 			}
 		};
-		//options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
-		options.LoginPath = new PathString("/User/Login");
+
+		// Set login paths for different user types
+		options.LoginPath = new PathString("/User/Login");  // For regular users
 		options.LogoutPath = "/User/Logout";
 		options.ReturnUrlParameter = "ReturnUrl";
 		options.SlidingExpiration = true;
-	});
+	})
+	.AddCookie("AdminSignin", options =>
+	{
+		options.AccessDeniedPath = new PathString("/Admin/AccessDenied");
+		options.Cookie = new CookieBuilder
+		{
+			HttpOnly = true,
+			Name = "AdminSigninCookie",
+			Path = "/",
+			SameSite = SameSiteMode.Lax,
+			SecurePolicy = CookieSecurePolicy.SameAsRequest
+		};
+		options.Events = new CookieAuthenticationEvents
+		{
+			OnSignedIn = context =>
+			{
+				Console.WriteLine("{0} - {1}: {2}", DateTime.Now, "OnAdminSignedIn", context.Principal.Identity.Name);
+				return Task.CompletedTask;
+			},
+			OnSigningOut = context =>
+			{
+				Console.WriteLine("{0} - {1}: {2}", DateTime.Now, "OnAdminSigningOut", context.HttpContext.User.Identity.Name);
+				return Task.CompletedTask;
+			},
+			OnValidatePrincipal = context =>
+			{
+				Console.WriteLine("{0} - {1}: {2}", DateTime.Now, "OnAdminValidatePrincipal", context.Principal.Identity.Name);
+				return Task.CompletedTask;
+			}
+		};
 
+		// Set login path for admin
+		options.LoginPath = new PathString("/Admin/AdmAccount/Login"); // For admin users
+		options.LogoutPath = "/Admin/AdmAccount/Logout";
+		options.ReturnUrlParameter = "ReturnUrl";
+		options.SlidingExpiration = true;
+	});
 
 builder.Services.AddSession(options =>
 {
@@ -98,7 +123,7 @@ builder.Services.AddCors(options =>
 	options.AddDefaultPolicy(
 		builder =>
 		{
-			builder.WithOrigins("http://FoodWebMVC-001-site1.dtempurl.com/")
+			builder.WithOrigins()
 				.AllowAnyHeader()
 				.WithMethods("GET", "POST")
 				.AllowCredentials();
@@ -144,7 +169,6 @@ app.MapAreaControllerRoute(
 	"Admin",
 	"Admin",
 	"Admin/{controller=AdmAccount}/{action=Login}/{id?}");
-
 
 app.MapControllerRoute(
 	"default",

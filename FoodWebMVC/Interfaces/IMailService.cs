@@ -1,8 +1,7 @@
 ﻿using FoodWebMVC.Models;
-using MailKit.Net.Smtp;
-using MailKit.Security;
-using Microsoft.Extensions.Options;
-using MimeKit;
+using System.Net.Mail;
+using System.Net;
+using Microsoft.Extensions.Configuration;
 
 namespace FoodWebMVC.Interfaces;
 
@@ -14,57 +13,62 @@ public interface IMailService
 public class MailService : IMailService
 {
 	private readonly IConfiguration _configuration;
-	private readonly MailSettings _mailSettings;
 
-	public MailService(IOptions<MailSettings> mailSettings, IConfiguration configuration)
+	public MailService(IConfiguration configuration)
 	{
-		_mailSettings = mailSettings.Value;
-		_configuration = configuration;
+		_configuration = configuration; // Inject IConfiguration
 	}
 
 	public async Task SendEmailAsync(MailRequest mailRequest)
 	{
-		var email = new MimeMessage();
-		var mail = _configuration["MailSettings:Mail"];
-		email.Sender = MailboxAddress.Parse(mail);
-		email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
-		email.Subject = mailRequest.Subject;
-
-		var builder = new BodyBuilder();
-
-		// Attachments handling
-		if (mailRequest.Attachments != null)
+		try
 		{
-			byte[] fileBytes;
-			foreach (var file in mailRequest.Attachments)
-				if (file.Length > 0)
-				{
-					using (var ms = new MemoryStream())
-					{
-						file.CopyTo(ms);
-						fileBytes = ms.ToArray();
-					}
-					builder.Attachments.Add(file.FileName, fileBytes, ContentType.Parse(file.ContentType));
-				}
+			// Lấy thông tin cấu hình từ appsettings.json
+			var mailSettings = _configuration.GetSection("MailSettings");
+			string fromMail = mailSettings["Mail"] ?? throw new ArgumentNullException("From email is null");
+			string fromPassword = mailSettings["Password"] ?? throw new ArgumentNullException("Password is null");
+			string displayName = mailSettings["DisplayName"] ?? "Default Display Name";
+			string host = mailSettings["Host"] ?? "smtp.gmail.com";
+			int port = int.Parse(mailSettings["Port"] ?? "587");
+
+			// Log cấu hình SMTP để kiểm tra
+			Console.WriteLine($"SMTP Config: Host={host}, Port={port}, EnableSsl=True");
+
+			// Tạo địa chỉ người gửi và người nhận
+			var fromAddress = new MailAddress(fromMail, displayName);
+			var toAddress = new MailAddress(mailRequest.ToEmail);
+
+			// Cấu hình SMTP client
+			using var smtp = new SmtpClient(host, port)
+			{
+				EnableSsl = true,
+				DeliveryMethod = SmtpDeliveryMethod.Network,
+				UseDefaultCredentials = false,
+				Credentials = new NetworkCredential(fromMail, fromPassword),
+				Timeout = 20000
+			};
+
+			// Tạo email
+			using var message = new MailMessage(fromAddress, toAddress)
+			{
+				Subject = mailRequest.Subject,
+				Body = mailRequest.Body,
+				IsBodyHtml = true
+			};
+
+			// Gửi email
+			await smtp.SendMailAsync(message);
+			Console.WriteLine("Email sent successfully.");
 		}
-
-		builder.HtmlBody = mailRequest.Body;
-		email.Body = builder.ToMessageBody();
-
-		using var smtp = new SmtpClient();
-		var host = _configuration["MailSettings:Host"];
-		var password = _configuration["MailSettings:Password"]; // Gmail App Password
-
-		// Connect to Gmail's SMTP server
-		smtp.Connect(host, _mailSettings.Port, SecureSocketOptions.StartTls);
-
-		// Authenticate with Gmail using the email and app password
-		smtp.Authenticate(mail, password);
-
-		// Send email asynchronously
-		await smtp.SendAsync(email);
-
-		// Disconnect and clean up
-		smtp.Disconnect(true);
+		catch (SmtpException smtpEx)
+		{
+			Console.WriteLine($"SMTP Error: {smtpEx.Message}");
+			throw new Exception($"SMTP Error: {smtpEx.Message}", smtpEx);
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"General Error: {ex.Message}");
+			throw new Exception($"Error sending email: {ex.Message}", ex);
+		}
 	}
 }
