@@ -7,12 +7,8 @@
   },
   "AllowedHosts": "*",
 
-  "ConnectionStrings": {
-    "DefaultConnection": "Data Source=SQL8004.site4now.net;Initial Catalog=db_a8c2ed_FoodWebMVC;User Id=db_a8c2ed_FoodWebMVC_admin;Password=!Lov3MyPiano"
-  },
-
   "ConnectionStringsOrg": {
-    "DefaultConnectionOrg": "Server=TRUONGNHON\\SQLEXPRESS; Database=FoodWebMVC; Trusted_Connection=True; MultipleActiveResultSets=true; user id=sa; password=123;"
+    "DefaultConnectionOrg": "Server=tcp:azuredbsql.database.windows.net,1433;Initial Catalog=FoodWebMVC;Persist Security Info=False;User ID=adminsql;Password=Admin123@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
   },
   "MailSettings": {
     "Mail": "<fromemail>",
