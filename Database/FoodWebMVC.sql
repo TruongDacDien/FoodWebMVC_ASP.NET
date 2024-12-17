@@ -228,7 +228,7 @@ N'blog_caphesua.jpg', '2024-11-07');
 
 -- Insert dữ liệu mẫu cho bảng Admin--Mật khẩu là 123
 INSERT INTO Admin (AdminUserName, AdminPassword, AdminEmail, AdminImage, AdminDateCreated) VALUES
-(N'admin', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', N'admin@gmail.com', N'admin.jpg', '2024-11-01')
+(N'admin', '20-2C-B9-62-AC-59-07-5B-96-4B-07-15-2D-23-4B-70', N'yudotakeshi110@gmail.com', N'admin.jpg', '2024-11-01')
 
 -- Insert dữ liệu mẫu cho bảng Banner
 INSERT INTO Banner (BannerName, ProductDiscount, BannerPrice, BannerDescription, BannerImage, BannerDateCreated) VALUES
