@@ -33,13 +33,13 @@
 					@Html.DisplayNameFor(model => model.DayOrder)
 				</dt>
 				<dd class="col-sm-10">
-					@Html.DisplayFor(model => model.DayOrder)
+					@Model.DayOrder.ToString("dd-MM-yyyy HH:mm tt")
 				</dd>
 				<dt class="col-sm-2">
 					@Html.DisplayNameFor(model => model.DayDelivery)
 				</dt>
 				<dd class="col-sm-10">
-					@Html.DisplayFor(model => model.DayDelivery)
+					@Model.DayDelivery.ToString("dd-MM-yyyy HH:mm tt")
 				</dd>
 				<dt class="col-sm-2">
 					@Html.DisplayNameFor(model => model.PaidState)

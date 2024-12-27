@@ -5,14 +5,14 @@
 	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 <div class="pagetitle">
-	<h1>Chỉnh sửa bài viết</h1>
+	<h1>Chỉnh sửa đơn hàng</h1>
 	<nav>
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">
 				<a asp-action="Index" asp-controller="AdmHome">Trang chủ</a>
 			</li>
 			<li class="breadcrumb-item">
-				<a asp-action="Index">Quản lý bài viết</a>
+				<a asp-action="Index">Quản lý đơn hàng</a>
 			</li>
 			<li class="breadcrumb-item active">Chỉnh sửa</li>
 		</ol>
@@ -28,22 +28,22 @@
 						<input type="hidden" asp-for="OrderId"/>
 						<div class="form-group">
 							<label asp-for="DayOrder" class="control-label"></label>
-							<input asp-for="DayOrder" class="form-control"/>
+							<input asp-for="DayOrder" class="form-control" value="@Model.DayOrder.ToString("yyyy-MM-ddTHH:mm")" />
 							<span asp-validation-for="DayOrder" class="text-danger"></span>
 						</div>
 						<div class="form-group">
 							<label asp-for="DayDelivery" class="control-label"></label>
-							<input asp-for="DayDelivery" class="form-control"/>
+							<input asp-for="DayDelivery" class="form-control" value="@Model.DayOrder.ToString("yyyy-MM-ddTHH:mm")"/>
 							<span asp-validation-for="DayDelivery" class="text-danger"></span>
 						</div>
 						<div class="form-group form-check">
 							<label class="form-check-label">
-								<input class="form-check-input" asp-for="PaidState"/> @Html.DisplayNameFor(model => model.PaidState)
+								<input class="form-check-input" asp-for="PaidState" value="@Model.PaidState"/> @Html.DisplayNameFor(model => model.PaidState)
 							</label>
 						</div>
 						<div class="form-group form-check">
 							<label class="form-check-label">
-								<input class="form-check-input" asp-for="DeliveryState"/> @Html.DisplayNameFor(model => model.DeliveryState)
+								<input class="form-check-input" asp-for="DeliveryState" value="@Model.DeliveryState"/> @Html.DisplayNameFor(model => model.DeliveryState)
 							</label>
 						</div>
 						<div class="form-group">

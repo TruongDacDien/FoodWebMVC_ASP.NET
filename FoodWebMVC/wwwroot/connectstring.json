@@ -16,19 +16,19 @@
     "Password": "<yourpasswordhere>",
     "Host": "smtp-mail.outlook.com",
     "Port": 587
-  },
-  "VnPaySettings": {
-    "vnp_Url": "<vnp_Url>",
-    "querydr": "<querydr>",
-    "vnp_TmnCode": "<vnp_TmnCode>",
-    "vnp_HashSecret": "<vnp_HashSecret>",
-    "vnp_Returnurl": "<vnp_Returnurl>"
-  },
-  "MOMOSettings": {
-    "serectkey": "<serectkey>",
-    "accessKey": "<accessKey>",
-    "partnerCode": "<partnerCode>",
-    "endpoint": "<endpoint>",
-    "returnMOMO": "<returnMOMO>"
   }
+  //"VnPaySettings": {
+  //  "vnp_Url": "<vnp_Url>",
+  //  "querydr": "<querydr>",
+  //  "vnp_TmnCode": "<vnp_TmnCode>",
+  //  "vnp_HashSecret": "<vnp_HashSecret>",
+  //  "vnp_Returnurl": "<vnp_Returnurl>"
+  //},
+  //"MOMOSettings": {
+  //  "serectkey": "<serectkey>",
+  //  "accessKey": "<accessKey>",
+  //  "partnerCode": "<partnerCode>",
+  //  "endpoint": "<endpoint>",
+  //  "returnMOMO": "<returnMOMO>"
+  //}
 }

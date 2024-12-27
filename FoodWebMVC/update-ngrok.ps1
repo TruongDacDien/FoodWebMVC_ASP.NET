@@ -12,7 +12,7 @@ if (-Not (Test-Path $ngrokPath)) {
 
 # Khởi động ngrok
 Write-Host "Starting Ngrok..." -ForegroundColor Green
-Start-Process $ngrokPath -ArgumentList "http https://localhost:7049"
+Start-Process $ngrokPath -ArgumentList "http https://localhost:7049" -WindowStyle Hidden
 
 # Chờ ngrok khởi động
 Start-Sleep -Seconds 5

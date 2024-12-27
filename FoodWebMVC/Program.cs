@@ -130,8 +130,10 @@ builder.Services.AddCors(options =>
 		});
 });
 
-var vnPaySettings = builder.Configuration.GetSection("VnPaySettings").Get<VnPaySettings>();
-builder.Services.AddSingleton(vnPaySettings);
+//var vnPaySettings = builder.Configuration.GetSection("VnPaySettings").Get<VnPaySettings>();
+//builder.Services.AddSingleton(vnPaySettings);
+var payOSSettings = builder.Configuration.GetSection("PayOSSettings").Get<PayOSProperties>();
+builder.Services.AddSingleton(payOSSettings);
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.

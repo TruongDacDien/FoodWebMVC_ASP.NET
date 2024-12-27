@@ -1,6 +1,7 @@
 ﻿using FoodWebMVC.Interfaces;
 using FoodWebMVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using X.PagedList;
 using X.PagedList.Extensions;
 
@@ -54,7 +55,8 @@ public class ProductController : Controller
 		if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
 			return RedirectToAction("Login", "User");
 		var pd = new ProductRating();
-		pd.CustomerId = 1;
+		var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+		pd.CustomerId = userId;
 		pd.ProductId = id;
 		pd.Stars = Convert.ToInt32(form["rating-input"]);
 		pd.RatingContent = form["RatingContent"];
@@ -64,7 +66,6 @@ public class ProductController : Controller
 		await _repoProduct.UpdateRating(id);
 		return RedirectToAction("Confirm", "Product");
 	}
-
 
 	// Confirm feature
 	public IActionResult Confirm()
@@ -76,12 +77,21 @@ public class ProductController : Controller
 	public async Task<IActionResult> SearchByFilter(string name, int? categoryId, string sort, int page = 1)
 	{
 		IEnumerable<Product> obj = await _repoProduct.GetListAsync();
+
+		// Gửi lại các tham số vào ViewData để giữ lại trong URL khi chuyển trang
+		ViewData["SearchName"] = name;
+		ViewData["CategoryId"] = categoryId;
+		ViewData["Sort"] = sort;
+
+		// Lọc theo tên sản phẩm nếu có
 		if (!string.IsNullOrEmpty(name))
 			obj = await _repoProduct.GetListAsync(x => x.ProductName.Contains(name));
 
+		// Lọc theo categoryId nếu có
 		if (categoryId.HasValue)
 			obj = await _repoProduct.GetListAsync(x => x.CategoryId == categoryId);
 
+		// Sắp xếp theo các lựa chọn
 		switch (sort)
 		{
 			case "date_desc":
@@ -101,7 +111,7 @@ public class ProductController : Controller
 				break;
 		}
 
-		return View(obj.ToPagedList(page, 9));
+		return View(obj.ToPagedList(page, 9)); // Trả về kết quả đã phân trang
 	}
 
 	public async Task<IActionResult> Filter()

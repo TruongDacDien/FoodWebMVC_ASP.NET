@@ -67,7 +67,7 @@
 								<a asp-action="ProductDetail" asp-route-id="@item.ProductId">
 									<img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
 								</a>
-								<div data-countdown="2022/08/24" class="countdown"></div>
+								<div data-countdown="2025/08/24" class="countdown"></div>
 							</figure>
 							<a href="">
 								<h3>@item.ProductName</h3>
@@ -114,7 +114,14 @@
 			<!-- /row -->
 			<div class="pagination__wrapper">
 				<ul class="pagination">
-					@Html.PagedListPager((IPagedList)Model, page => Url.Action("SearchByFilter", new { page }))
+					@Html.PagedListPager((IPagedList)Model, page =>
+											Url.Action("SearchByFilter", new
+											{
+												page,
+												name = ViewData["SearchName"],
+												categoryId = ViewData["CategoryId"],
+												sort = ViewData["Sort"]
+											}))
 				</ul>
 			</div>
 		</div>
